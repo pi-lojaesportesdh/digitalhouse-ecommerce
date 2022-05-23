@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale-1.0">
+    <title>Projeto Integrador</title>
+    <link href="views\css\carrinho.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html" title="Home"><img src="https://img.icons8.com/color/344/espn.png"></a>
+      </div>
+
+      <!-- Caixa de pesquisa-->
+      <div class="pesquisar">
+        <button class="Buscar">
+          <input type="text" placeholder="Buscar..." />
+          <a href="" title="Pesquisar">
+            <img src="https://img.icons8.com/ios-filled/344/fa314a/search--v1.png" alt="Buscar" />
+          </a>
+        </button>
+      </div>
+
+      <!-- botao login/cadastro-->
+      <div class="login">
+        <button class="BOTAO_CONTA">MINHA CONTA
+          <a type="text" href="index.html">
+            <img src="https://img.icons8.com/material-rounded/344/fa314a/user-male-circle.png" title="Acessar conta" alt="Usuário" />
+          </a>
+        </button>
+      </div>
+
+    </div>
+
+  </header>
+
+  <main>
+    <div style="display: grid">
+      <div class="disposicao_horizontal">
+        <div class="disposicao_vertical2">
+          <div>
+            <b>Meu carrinho</b>
+
+            <fieldset class="caixa_produto">
+
+              <div class="disposicao_produto">
+                <div class="img_produto">
+                  <img src="https://www.oficinadoabada.com.br/wp-content/uploads/2019/07/camisa-de-time-personalizada-catn-102-300x300.png" alt="Car">
+                </div>
+                <div class="informacoes_produto">
+                  <p>nomeDoProduto - anuncio</p>
+                  <p>ref:</p>
+                  <p>Vendido por:</p>
+                  <p>Entregue por:</p>
+                  <p>Tamanho:</p>
+                  <p>Cor:</p>
+                </div>
+              </div>
+
+              <div class="quantidade">
+
+                <form>
+                  <label for="quantity">Quantidade:</label>
+                  <input type="number" id="quantity" name="quantity" min="1" max="100">
+                </form>
+
+                <p><del>(R$ 150,00)</del> R$ 100,00</p>
+
+              </div>
+
+              <a class="mais_produtos" href="">Ver mais produtos dessa loja</a>
+
+            </fieldset>
+
+            <div class="disposicao_cep">
+              <p>Simule frete e prazo de entrega</p>
+
+              <form>
+                <label for="CEP">CEP:
+                  <input class="cep" name="CEP" id="CEP" required="" pattern="\d{5}-\d{3}">
+                </label>
+                <input class="botao_cep" style="border-radius: 8px;" type="submit" value="Calcular">
+              </form>
+
+              <a href="https://buscacepinter.correios.com.br/app/endereco/index.php">(não sei meu CEP)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resumo_compra">
+          <div>
+            <b>Resumo da compra</b>
+
+            <div class="disposicao_compra">
+
+              <div class="subtotal">
+                <p>Subtotal (1 item)</p>     
+                <p> R$ 100,00</p>
+              </div>
+              <div class="frete">
+                <p>Frete</p>     
+                <p>Grátis</p>
+              </div>
+              <div class="entrega">
+                <p>Ver outras opções de entrega</p>      
+                <p>Chega até dia</p>
+              </div>
+              <div class="cupom">
+                <p>Cupom de desconto</p>
+                <a href="https://buscacepinter.correios.com.br/app/endereco/index.php">(Adicionar)</a>
+              </div>
+              <div class="descontos">
+                <p>Descontos</p>     
+                <p>0,00</p>
+              </div>
+              <div class="valor">
+                <p>Valor total</p>     
+                <p>R$ 100,00</p>
+              </div>
+              <p class="numero_parcelas">Em até 5x de R$ 20,00 sem juros</p>
+            </div>
+
+            <div class="botoes_continuar">
+              <button class="comprar" type="button">CONTINUAR</button>
+              <button class="comprar" type="button">Escolher mais produtos</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="disposicao_aproveite">
+        <b>Aproveite e leve também</b>
+
+        <div class="aproveite">
+
+          <div class="produto">
+            <img src="https://www.oficinadoabada.com.br/wp-content/uploads/2019/07/camisa-de-time-personalizada-catn-102-300x300.png" alt="Car" width="240px" height="200px">
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco1" checked>
+              <label for="huey">Preço 1</label>
+            </div>
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco2" checked>
+              <label for="huey">Preço 2</label>
+            </div>
+            <button class="comprar" type="button">Adicionar ao carrinho</button>
+
+          </div>
+          <div class="produto">
+            <img src="https://www.oficinadoabada.com.br/wp-content/uploads/2019/07/camisa-de-time-personalizada-catn-102-300x300.png" alt="Car" width="240px" height="200px">
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco1" checked>
+              <label for="huey">Preço 1</label>
+            </div>
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco2" checked>
+              <label for="huey">Preço 2</label>
+            </div>
+            <button class="comprar" type="button">Adicionar ao carrinho</button>
+          </div>
+
+          <div class="produto">
+            <img src="https://www.oficinadoabada.com.br/wp-content/uploads/2019/07/camisa-de-time-personalizada-catn-102-300x300.png" alt="Car">
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco1" checked>
+              <label for="huey">Preço 1</label>
+            </div>
+            <div class="seletor">
+              <input type="radio" name="drone" value="preco2" checked>
+              <label for="huey">Preço 2</label>
+            </div>
+            <button class="comprar" type="button">Adicionar ao carrinho</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="cartoes">
+
+        <img src="https://img.icons8.com/material/344/visa--v1.png" alt="Car">
+        <img src="https://img.icons8.com/material/344/mastercard.png" alt="Car">
+        <img src="https://img.icons8.com/material/344/amex.png" alt="Car">
+        <img src="https://img.icons8.com/material/344/diners-club.png">
+        <img src="https://cdn3.iconfinder.com/data/icons/font-awesome-brands/576/cc-amazon-pay-256.png" alt="Car">
+        <img src="https://cdn-icons-png.flaticon.com/512/39/39022.png" alt="Car">
+
+      </div>
+
+  </main>
+  <footer>
+
+    <div class="rodape">
+      <p style="color:white">Curso Fullstack Web - Turma 0222CDFSPCN05BRED</p>
+
+      <p style="color: white">Copyright ©2022, TODOS OS DIREITOS RESERVADOS. Todo o conteúdo do site, todas as fotos, imagens,
+        logotipos, marcas, dizeres, som, software, conjunto imagem, layout, trade dress, aqui veiculados são
+        exclusivamente para uso acadêmico.</p>
+    </div>
+
+    <div class="redes_sociais">
+
+      <div class="rede">
+        <button type="button">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook">none</button>
+      </div>
+
+      <div class="rede">
+        <button type="button">
+          <img src="https://www.pngmart.com/files/21/Instagram-Logo-PNG-File.png" alt="Instagram">none</button>
+      </div>
+
+      <div class="rede">
+        <button type="button">
+          <img src="https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-1-1.png" alt="Twitter">none</button>
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
