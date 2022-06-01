@@ -1,0 +1,99 @@
+<%- include partials/head%>
+
+  <body style="min-width: 372px;">
+    <nav>
+      <%- include partials/nav%>
+    </nav>
+
+    <main class="pb-5">
+      <div class="container pb-5">
+        <h1>Informe seus dados, por favor</h1>
+        <hr>
+        <form action="" class="needs-validation">
+          <div class="row">
+            <div class="col-sm-12 col-md-8 col-xl-6">
+              <fieldset class="row">
+                <div class="col-12 mb-3">
+                  <legend>Dados Pessoais</legend>
+                  <label for="txtNome" class="form-label">Nome:</label>
+                  <input type="text" placeholder="Nome completo" class="form-control" id="textNome" required>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5 mb-3">
+                  <label for="txtCPF" class="form-label">CPF:</label>
+                  <input type="text" placeholder="Somente números" class="form-control" id="txtCPF" required>
+                </div>
+                <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 mb3">
+                  <label for="txtDateNascimento" class="form-label">Data de Nascimento:</label>
+                  <input type="date" class="form-control" id="txtDateNascimento" required>
+                </div>
+                <div class="col-md-8 mb-3">
+                  <legend>Contatos</legend>
+                  <label for="txtEmail" class="form-label">E-mail:</label>
+                  <input type="email" placeholder="Ex: email@email.com" class="form-control" id="textEmail" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="txtTelefone" class="form-label">Telefone:</label>
+                  <input type="tel" placeholder="Ex: (DD) somente números" class="form-control" id="textTelefone" required>
+                </div>
+              </fieldset>    
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <fieldset class="row">
+                <div class="mb-3 col-md-6 col-lg-4">
+                  <legend>Endereço</legend>
+                  <label for="txtCEP" class="form-label">CEP:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="txtCEP" placeholder="Digite seu CEP" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="txtNumero" class="form-label">Número:</label>
+                  <input type="text" placeholder="Número da Casa/Ap" class="form-control" id="textNumero" required>
+                </div>
+                <div class="col-md-7 mb-3">
+                  <label for="txtComplemento" class="form-label">Complemento:</label>
+                  <input type="text" placeholder="Andar, condomínio e etc..." class="form-control" id="textComplemento" required>
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="txtReferencia" class="form-label">Referência:</label>
+                  <input type="text" placeholder="Ponto de referência" class="form-control" id="txtReferencia" required>
+                </div>
+              </fieldset>
+              <fieldset class="row col-13">
+                <legend>Senha de Acesso</legend>
+                <div class="col-md-6 mb-3">
+                  <label for="txtSenha" class="form-label">Senha:</label>
+                  <input type="password" placeholder="Insira sua senha" class="form-control" id="txtSenha" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="txtConfSenha" class="form-label">Confirme sua Senha:</label>
+                  <input type="password" placeholder="Confirme sua senha aqui" class="form-control" id="txtConfSenha" required>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <hr>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" name="chkPromocoes" id="chkPromocoes" value="checkedValue" checked>
+              Desejo receber informações sobre promoções.
+            </label>
+          </div>
+          <div class="mb-3">
+            <a class="btn btn-light btn-outline-danger" href="/">Cancelar</a>
+            <input type="button" value="Criar meu cadastro" class="btn btn-danger" onclick="window.location.href='registConfirm'">
+          </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="pt-5">
+      <%- include partials/footer%>
+    </footer>
+    <%- include partials/scripts%>
+  </body>
+
+  </html>

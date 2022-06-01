@@ -1,0 +1,52 @@
+<%- include partials/head%>
+
+  <body style="min-width: 372px;">
+    <nav>
+      <%- include partials/nav%>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <form action="" class="col-sm-10 com-md-8 col-lg-6">
+                    <div class="form-floating mb-3">
+                        <h1 class="mb-3">Faça seu Login</h1>
+                        <hr>
+                        <label for="txtEmail">E-mail:</label>
+                        <input type="email" class="form-control" autofocus id="textEmail" placeholder="Seu e-mail" required>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingPassword">Senha:</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Sua senha" required>
+                    </div>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input" name="chkPromocoes" id="chkPromocoes" value="checkedValue" checked>
+                          Lembrar Usuário.
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <a class="btn btn-light btn-outline-danger" href="/">Entrar</a>
+                    </div>
+                    <div class="mt-3">
+                        <p>
+                            Ainda não é cadastrado? <a href="registration">Clique aqui</a> para 
+                            se cadastrar.
+                        </p>
+                        <p>
+                            Esqueceu sua senha? <a href="recPassword">Clique aqui</a> para
+                            recupera-lá.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+      <%- include partials/footer%>
+    </footer>
+    <%- include partials/scripts%>
+  </body>
+
+  </html>

@@ -1,0 +1,35 @@
+<%- include partials/head%>
+
+  <body style="min-width: 372px;">
+    <nav>
+      <%- include partials/nav%>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <form action="" class="col-sm-10 com-md-8 col-lg-6">
+                    <div class="form-floating mb-3">
+                        <h1 class="mb-3">Cadastrar Nova Senha</h1>
+                        <label for="floatingPassword">Senha:</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Sua senha" required>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="floatingPassword">Confirme Sua Senha:</label>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Repita sua senha" required>
+                    </div>
+                    <div class="mb-3">
+                        <a class="btn btn-light btn-outline-danger" href="createNewPassConfirm">Confirmar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+      <%- include partials/footer%>
+    </footer>
+    <%- include partials/scripts%>
+  </body>
+
+  </html>
