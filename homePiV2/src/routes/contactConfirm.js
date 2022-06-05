@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+const confirmacaoContato = require ('../../controllers/contactConfirm')
 /* GET contact page. */
-router.get('/', function(req, res, next) {
-  res.render('contactConfirm', { title: 'DH-Sports!' });
-});
+  router.get('/', contactConfirm.confirmacaoContato);
 
 module.exports = router;

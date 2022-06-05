@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const privacidade = require ('./../controlleres/privacyControllers')
 
 /* GET privacy page. */
-router.get('/', function(req, res, next) {
-  res.render('privacy', { title: 'DH-Sports!' });
-});
+router.get('/', privacyControllers.privacidade);
 
 module.exports = router;

@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const termosDeUso = require ('../../controllers/termsUseControllers')
 
 /* GET privacy page. */
-router.get('/', function(req, res, next) {
-  res.render('termsUse', { title: 'DH-Sports!' });
-});
+router.get('/', termsUseControllers.termosDeUso);
 
 module.exports = router;

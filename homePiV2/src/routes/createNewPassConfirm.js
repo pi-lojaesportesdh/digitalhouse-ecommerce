@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
+const confirmarCriacao = require('../../controllers/createNewPassConfirmControllers')
 
 /* GET exchangePolicy page. */
-router.get('/', function(req, res, next) {
-  res.render('createNewPassConfirm', { title: 'DH-Sports!' });
-});
+router.get('/', createNewPassConfirmControllers.confirmarCriacao);
 
 module.exports = router;
