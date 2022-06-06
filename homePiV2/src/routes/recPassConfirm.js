@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const confirmarPass = ('../../controllers/recPassConfirmControllers')
+
 
 /* GET login page. */
-router.get('/', recPassConfirmControllers.confirmarPass);
+router.get('/', rfunction(req, res, next) {
+    res.render('recPassConfirm', { title: 'DH-Sports!' })
+  });
 
 module.exports = router;

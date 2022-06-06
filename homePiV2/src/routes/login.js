@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const login = require ('../../controllers/loginControllers')
 
 /* GET login page. */
-router.get('/', loginControllers.login );
+router.get('/', function(req, res, next) {
+    res.render('login', { title: 'DH-Sports!' });
+  } );
 
 module.exports = router;

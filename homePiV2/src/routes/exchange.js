@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const mudanca = require ('../../controllers/exchangeControllers')
+
+
 /* GET exchangePolicy page. */
-router.get('/', exchangeControllers.mudanca);
+router.get('/', function(req, res, next) {
+    res.render('exchangePolicy', { title: 'DH-Sports!' });
+  });
 
 module.exports = router;

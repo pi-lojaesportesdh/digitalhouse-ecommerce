@@ -1,8 +1,9 @@
 var express = require('express');
-const  contato = require('../../controllers/contactControllers');
 var router = express.Router();
 
 /* GET contact page. */
-router.get('/', contactController.contato);
+router.get('/',  function(req, res, next) {
+    res.render('contact', { title: 'DH-Sports!' });
+  });
 
 module.exports = router;

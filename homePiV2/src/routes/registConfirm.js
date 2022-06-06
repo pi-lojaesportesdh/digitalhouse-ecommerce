@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const confirmarRegistro = require ('../../controllers/registConfirmControllers')
 
 /* GET registConfirm page. */
-router.get('/', registConfirmControllers.confirmarRegistro);
+router.get('/', function(req, res, next) {
+    res.render('registConfirm', { title: 'DH-Sports!' });
+  });
 
 module.exports = router;
