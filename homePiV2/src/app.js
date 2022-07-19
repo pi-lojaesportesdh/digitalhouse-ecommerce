@@ -1,26 +1,12 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var loginRouter = require('./routes/login');
-var privacyRouter = require('./routes/privacy');
-var termsRouter = require('./routes/termsUse');
-var registrationRouter = require('./routes/registration');
-var registConfirmRouter = require('./routes/registConfirm');
-var exchangeRouter = require('./routes/exchange');
-var contactRouter = require('./routes/contact');
-var contactConfirmRouter = require('./routes/contactConfirm');
-var recPasswordRouter = require('./routes/recPassword');
-var recPassConfirmRouter = require('./routes/recPassConfirm')
-var createNewPassRouter = require('./routes/createNewPass')
-var createNewPassConfirmRouter = require('./routes/createNewPassConfirm')
-var shoppingCartRouter = require('./routes/shoppingCart')
-
-var app = express();
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const logger = require('morgan');
+const methodOverride = require('method-override');
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,21 +17,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(methodOverride('_method'));
+
+
+//Rotas
+const indexRouter = require('./routes/index');
+const productRouter = require('./routes/productRouter');
+const cartRouter = require('./routes/cartRouter');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/login', loginRouter)
-app.use('/privacy', privacyRouter);
-app.use('/registration', registrationRouter);
-app.use('/registConfirm',registConfirmRouter);
-app.use('/termsUse', termsRouter);
-app.use('/contact', contactRouter);
-app.use('/contactConfirm', contactConfirmRouter);
-app.use('/recPassword', recPasswordRouter);
-app.use('/recPassConfirm', recPassConfirmRouter);
-app.use('/createNewPass', createNewPassRouter);
-app.use('/createNewPassConfirm', createNewPassConfirmRouter);
-app.use('/shoppingCart', shoppingCartRouter);
+app.use('/', cartRouter);
+app.use('/product', productRouter);
 
 
 // catch 404 and forward to error handler

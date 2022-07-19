@@ -1,0 +1,39 @@
+<%- include ('../partials/head') %>
+
+<body class="min-width: 372px">
+  <%- include ('../partials/nav') %>
+  <div class="container">
+      <div class="row justify-content-center">
+        <h1 class="row justify-content-center">Crie seu produto</h1>
+        <form class="row justify-content-center g-3 needs-validation" novalidate>
+          <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Nome do produto:</label>
+            <input type="text" name="nameProduct" class="form-control" id="validationCustom01" placeholder="Digite o nome do produto" required>
+            <div class="invalid-feedback">
+              Não esqueça de preencher esse campo!
+            </div>
+            <label for="validationTextarea" class="form-label pt-3">Descrição:</label>
+              <textarea class="form-control" name="descProduct" id="validationTextarea" placeholder="Descrição do seu produto" style= "width:100%" required></textarea>
+              <div class="invalid-feedback">
+                Descreva o seu produto!
+              </div>
+              <label for="validationCustom01" class="form-label pt-3">Valor do produto:</label>
+              <input type="text" name="valueProduct" class="form-control" id="validationCustom01" placeholder="Digite o valor do produto, ex: 000,00" required>
+              <div class="invalid-feedback">
+                Não esqueça de preencher esse campo!
+              </div>
+              <div class="custon-upload">
+                <label for="formFile" class="form-label pt-3">Carregue a imagem do produto:</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+              <div class="row justify-content-center gap-3 pt-5">
+                <button class="btn btn-lg btn-primary" style= "width:45%" type="submit">Criar</button>
+                <a class="btn btn-outline-warning btn-lg" style= "width:45%" href="../product/createProduct">Cancelar</a>
+              </div>
+          </div>
+        </form> 
+      </div>
+  </div>
+  <%- include ('../partials/footer') %>
+  <%- include ('../partials/scripts') %>
+</body>

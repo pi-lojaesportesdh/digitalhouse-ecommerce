@@ -1,18 +1,10 @@
-<%- include partials/head%>
-  <body style="min-width: 372px;" >
-    <nav>
-      <%- include partials/nav%>
-    </nav>
-    <header>
-      <%- include partials/header%>
-    </header>
-    <main>
-      <%- include produto/listagem%>
-    </main>
 
-    <footer>
-      <%- include partials/footer%>
-    </footer>
-    <%- include partials/scripts%>
+  <%- include ('partials/head') %>
+
+  <body class="min-width: 372px">
+    <%- include ('partials/nav') %>
+    <%- include ('partials/header') %>
+    <%- include ('partials/listProducts') %>
+    <%- include ('partials/footer') %>
+    <%- include ('partials/scripts') %>
   </body>
-</html>

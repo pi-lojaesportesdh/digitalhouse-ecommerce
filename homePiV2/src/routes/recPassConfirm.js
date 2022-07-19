@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 /* GET login page. */
-router.get('/', rfunction(req, res, next) {
+router.get('/', function(req, res) {
     res.render('recPassConfirm', { title: 'DH-Sports!' })
   });
 

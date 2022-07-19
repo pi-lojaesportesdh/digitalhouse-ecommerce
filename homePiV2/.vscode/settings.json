@@ -1,7 +1,33 @@
 {
     "cSpell.words": [
+        "adipisicing",
+        "amet",
+        "conexao",
+        "consectetur",
+        "descricao",
+        "elit",
+        "homepiv",
+        "middlewares",
         "Promocoes",
+        "Reazzor",
         "regist",
-        "resgistration"
+        "resgistration",
+        "usuarios",
+        "usuariosapp"
+    ],
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "FirstMySqlConnection",
+            "database": "myshop",
+            "username": "admin",
+            "password": "Reazzor8243###"
+        }
     ]
 }
