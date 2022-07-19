@@ -24,10 +24,14 @@ app.use(methodOverride('_method'));
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 const cartRouter = require('./routes/cartRouter');
+const adminRouter = require('./routes/adminRouter');
+
 
 app.use('/', indexRouter);
 app.use('/', cartRouter);
+app.use('/', adminRouter);
 app.use('/product', productRouter);
+
 
 
 // catch 404 and forward to error handler

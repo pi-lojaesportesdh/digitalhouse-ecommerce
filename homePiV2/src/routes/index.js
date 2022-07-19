@@ -6,11 +6,6 @@ const indexController = require('../controllers/indexController');
 const validateRegist = require('../validations/validateRegist');
 const validateContact = require('../validations/validateContact');
 
-/* GET home page. */
-router.get('/',function(req, res) {
-    res.render('index', { title: 'DH-Sports!' });
-  });
-
 router.get('/', indexController.index);
 
 router.get('/registration', indexController.registration);
