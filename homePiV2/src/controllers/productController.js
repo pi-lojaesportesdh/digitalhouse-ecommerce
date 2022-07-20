@@ -1,11 +1,13 @@
-const { validationResult } = require('express-validator');
+
+const Produto = require('../database/models/Product')
 
 // TODO: Criar o controller para a criação de usuários e produtos.
 
-
 module.exports = {
-    allProducts : (req, res) => {
-        res.render('product/allProduct', { title: 'Todos os produtos'})
+    async allProducts(req, res){
+        const produto = await Produto.findAll(); //Lista todos os produtos
+        // let resultadoProduto = JSON.stringify(produto) 
+        return console.log(produto )
     },
 
     createProducts : (req, res) => {
