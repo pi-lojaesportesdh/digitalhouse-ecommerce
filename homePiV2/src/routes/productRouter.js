@@ -9,6 +9,6 @@ const productController = require('../controllers/productController');
 router.get('/allProduct', productController.allProducts)
 router.get('/createProduct', productController.createProducts);
 
-// TODO: Rota para a criação de produtos e usuários
+// TODO: Rota para a criação de produtos
 
 module.exports = router;
