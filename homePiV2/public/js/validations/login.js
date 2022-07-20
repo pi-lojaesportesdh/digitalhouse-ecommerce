@@ -2,6 +2,7 @@ const form = document.querySelector('form')
 const inputEmail = document.querySelector('input[name="email"]')
 const inputPassword = document.getElementsByName('password')[0]
 
+// Essa função poderá ser utilizada em qlq
 const showPopup = (err) => {
     return   Swal.fire({
       icon: 'error',
@@ -35,3 +36,5 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     validationsInputs(inputEmail, inputPassword)
 })
+
+export {showPopup}
