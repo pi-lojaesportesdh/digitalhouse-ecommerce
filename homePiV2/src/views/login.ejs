@@ -12,11 +12,11 @@
                     <h1 class="mb-3">Faça seu Login</h1>
                     <hr>
                     <div class="form-floating mb-3">    
-                        <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                        <input type="" class="form-control" id="email" placeholder="name@example.com" name="email">
                         <label for="email">E-mail:</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Sua senha">
+                        <input type="password" class="form-control" id="password" placeholder="Sua senha" name="password">
                         <label for="password">Senha:</label>
                     </div>
                     <div class="form-check mb-3">
@@ -47,6 +47,7 @@
       <%- include ('partials/footer')%>
     </footer>
     <%- include ('partials/scripts')%>
+    <script src="../../js/validations/login.js"></script>
   </body>
 
   </html>
