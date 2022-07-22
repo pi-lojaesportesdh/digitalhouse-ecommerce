@@ -21,6 +21,7 @@ app.use(methodOverride('_method'));
 
 
 //Rotas
+const apiRouter = require('./routes/api.routes');
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 const cartRouter = require('./routes/cartRouter');
@@ -31,6 +32,8 @@ app.use('/', indexRouter);
 app.use('/', cartRouter);
 app.use('/', adminRouter);
 app.use('/product', productRouter);
+// Rota para API
+app.use('/', apiRouter)
 
 
 

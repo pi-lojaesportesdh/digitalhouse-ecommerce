@@ -6,6 +6,7 @@ const {Product} = require('../database/models')
 module.exports = {
     async allProducts(req, res){
         const listProducts = await Product.findAll(); //Lista todos os produtos
+        console.log(listProducts)
         // let resultadoProduto = JSON.stringify(produto) 
         return res.render('product/allProduct',{title:"Lista de produtos",listProducts})
     },
