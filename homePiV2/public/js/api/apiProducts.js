@@ -11,7 +11,7 @@ let objTeste = {
 
 }
 
-const getApi = async () => {
+const getProducts = async () => {
     // 1. Listar os produtos que vem da API
     try {
         let response = await fetch(url); // Buscando a URL da API.
@@ -27,7 +27,7 @@ const getApi = async () => {
 
 // 2. Criar item dentro da APi
 //POST
-const addItemApi = async () => {
+const addProduct = async () => {
     const settings = {
         method: 'POST',
         headers: {
@@ -47,6 +47,20 @@ const addItemApi = async () => {
     }
 }
 
+const detailProduct = async () => {
 
-getApi()
-addItemApi()
+    try {
+        let response = await fetch(url);
+        if(response.ok){
+            console.log(await response.json())
+        }
+    }
+    catch(err) {
+        console.log('Falha ao tentar detalhar o produto!')
+    }
+}
+
+
+getProducts()
+// 1. Quando a view estiver pronta reconfigurar essa linha para receber do body e descomentar
+// addProduct()
