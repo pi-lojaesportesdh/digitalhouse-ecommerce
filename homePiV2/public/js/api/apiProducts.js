@@ -3,13 +3,8 @@
 2. TODO: Excluir dados que vem da API.
 */
 let url = '/api'
+let form = document.querySelector('form');
 
-let objTeste = {
-    nome: 'Teste de consumo API',
-    descricao: 'Produto 10x mais chave',
-    valor: '90'
-
-}
 
 const getProducts = async () => {
     // 1. Listar os produtos que vem da API
@@ -28,23 +23,39 @@ const getProducts = async () => {
 // 2. Criar item dentro da APi
 //POST
 const addProduct = async () => {
-    const settings = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(objTeste)
-    }
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let nameProduct = document.getElementsByName('nameProduct')[0].value
+        let descProduct = document.getElementsByName('descProduct')[0].value
+        let valueProduct = document.getElementsByName('valueProduct')[0].value
 
-    try {
-        let response = await fetch(url, settings);
-        if(response.ok){
-            console.log(await response.json())
+        const dataForm = 
+        {
+            nome: nameProduct,
+            descricao: descProduct,
+            valor: valueProduct
         }
-    }
-    catch(err) {
-        console.log('O produto não foi criado no banco de dados')
-    }
+
+        const settings = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(dataForm)
+        }
+    
+        try {
+            let response = await fetch(url, settings);
+            if(response.ok){
+                console.log(await response.json())
+            }
+        }
+        catch(err) {
+            console.log('O produto não foi criado no banco de dados')
+        }
+    })
+
+    
 }
 
 const detailProduct = async () => {
@@ -61,6 +72,7 @@ const detailProduct = async () => {
 }
 
 
+addProduct()
 getProducts()
 // 1. Quando a view estiver pronta reconfigurar essa linha para receber do body e descomentar
 // addProduct()

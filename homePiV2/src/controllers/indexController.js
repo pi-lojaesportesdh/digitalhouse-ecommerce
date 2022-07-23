@@ -1,8 +1,13 @@
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
 
 module.exports = {
-    index : (req, res)  => {
-        res.render('index', { title: 'DH-Sports' });
+    index : async (req, res)  => {
+        const produtos = await db.Product.findAll();
+
+        res.render('index', {
+            produtos, 
+            title: 'Teste novo' });
     },
     login : (req, res)  => {
         return res.render('login', { title: 'Login' });

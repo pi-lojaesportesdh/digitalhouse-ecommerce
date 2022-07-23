@@ -3,7 +3,7 @@ listar = async (req, res) => {
   //Buscar todos os produtos do banco
   try {
     const produtos = await db.Product.findAll();
-    res.status(200).json(produtos);
+    res.render('partials/listProducts', {teste: 'Teste do macaco louco'})
   } catch (err) {
     console.error('Erro ao tentar executar consulta:', { err });
     res.status(500).json({ error: 'Houve um erro ao acessar os produtos' });
