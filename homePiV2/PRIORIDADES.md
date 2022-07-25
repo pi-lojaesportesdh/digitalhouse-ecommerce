@@ -4,3 +4,5 @@
 ### 4º Criar lógica para como adm editar o produto, atualizar e excluir;
 
 ### 5º Criar tabela usuários no banco de dados;
+
+### 6º Apagar a partial listProduct e renderizar a listagem de produtos direto na view desejada;

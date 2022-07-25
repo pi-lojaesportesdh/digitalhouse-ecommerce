@@ -1,10 +1,32 @@
-
-  <%- include ('partials/head') %>
+<%- include ('partials/head') %>
 
   <body class="min-width: 372px">
     <%- include ('partials/nav') %>
-    <%- include ('partials/header') %>
-    <%- include ('partials/listProducts') %>
-    <%- include ('partials/footer') %>
-    <%- include ('partials/scripts') %>
+      <%- include ('partials/header') %>
+
+
+        <div class="d-flex container">
+          <% for(let i=0; i < produtos.length; i++) {%>
+            <div class="row row-cols-4 p-3">
+              <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <%= produtos[i].nome %>
+                  </h5>
+                  <p class="card-text">
+                    <%= produtos[i].descricao %>.
+                  </p>
+                  <button class="btn btn-primary" type="submit" id="">
+                    Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <% }%>
+        </div>
+
+        <hr class="mb-5">
+        <%- include ('partials/footer') %>
+          <%- include ('partials/scripts') %>
   </body>

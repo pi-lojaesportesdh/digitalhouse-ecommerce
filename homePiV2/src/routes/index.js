@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const indexController = require('../controllers/indexController');
+const productController = require('../controllers/productController');
 
 //Importar Validações
 const validateRegist = require('../validations/validateRegist');
 const validateContact = require('../validations/validateContact');
 
 router.get('/', indexController.index);
+router.get('/', productController.allProducts);
 
-router.get('/registration', indexController.registration);
-router.post('/registConfirm',validateRegist, indexController.registConfirm);
+router.get('/registration', validateRegist, indexController.registration);
+router.post('/registConfirm', indexController.registConfirm);
 
 router.get('/login', indexController.login);
 router.get('/privacy', indexController.privacy);
