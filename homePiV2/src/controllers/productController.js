@@ -1,14 +1,10 @@
-
-const {Product} = require('../database/models')
-
 // TODO: Criar o controller para a criação de usuários e produtos.
 
 module.exports = {
     async allProducts(req, res){
         const listProducts = await Product.findAll(); //Lista todos os produtos
-        console.log(listProducts)
-        // let resultadoProduto = JSON.stringify(produto) 
-        return res.render('index',{title:"Lista de produtos", listProducts}) 
+        // let resultadoProduto = JSON.stringify(produto)
+        return res.render('index',{title:"Lista de produtos", listProducts})
     },
 
     createProducts : (req, res) => {

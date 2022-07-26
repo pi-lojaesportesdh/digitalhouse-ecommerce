@@ -7,3 +7,5 @@
 
 ### 6º Apagar a partial listProduct e renderizar a listagem de produtos direto na view desejada;
 
+### 7º Arrumar a responsividades quando add produtos na pg;
+
