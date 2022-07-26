@@ -3,7 +3,7 @@
 2. TODO: Excluir dados que vem da API.
 */
 let url = '/api'
-let form = document.querySelector('form');
+let form = document.querySelector('.formCreateProduct');
 
 
 const getProducts = async () => {
@@ -23,7 +23,7 @@ const getProducts = async () => {
 // 2. Criar item dentro da APi
 //POST
 const addProduct = async () => {
-    form.addEventListener('submit', async (e) => {
+   form && form.addEventListener('submit', async (e) => {
         e.preventDefault();
         let nameProduct = document.getElementsByName('nameProduct')[0].value
         let descProduct = document.getElementsByName('descProduct')[0].value

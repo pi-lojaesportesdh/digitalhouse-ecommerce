@@ -17,6 +17,8 @@ module.exports = {
     },
     registConfirm : (req,res) => {
         const errors = validationResult(req, res);
+        console.log("Os erros: ",errors);
+
         if (errors.isEmpty()) {
             res.render('registConfirm', { title: 'Cadastrado com Sucesso!' });
 
