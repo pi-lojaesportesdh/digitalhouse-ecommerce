@@ -1,3 +1,13 @@
 [
-    
+ {
+  "id": 1,
+  "nomeCompleto": "UsuarioTeste",
+  "cpf": "",
+  "dataNascimento": "",
+  "email": "teste@gmail.com",
+  "tel": "",
+  "password": "1500",
+  "chkPromocoes": "checkedValue",
+  "role": "default"
+ }
 ]

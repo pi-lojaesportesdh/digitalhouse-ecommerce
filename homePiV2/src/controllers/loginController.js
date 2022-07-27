@@ -8,6 +8,16 @@ module.exports = {
         return res.render('login', { title: 'Login' });
     },
 
+    // POST LOGIN *VERIFICAÇÃO DE USUÁRIO DENTRO DO "BANCO DE DADOS"
+    loginPost : (req, res) => {
+        const {email} = req.body;
+
+        let dataUserToLogin = userRepository.findUserByField('email', email);
+        if(dataUserToLogin){
+            res.send('Você foi encontrado no banco de dados')
+        }
+    },
+
     //GET 
     registration : (req, res) => {
         res.render ('registration', { title: 'Cadastro'})
