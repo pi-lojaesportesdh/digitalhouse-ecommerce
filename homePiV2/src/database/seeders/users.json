@@ -1,13 +1,12 @@
 [
  {
-  "id": 1,
-  "nomeCompleto": "UsuarioTeste",
-  "cpf": "",
-  "dataNascimento": "",
-  "email": "teste@gmail.com",
-  "tel": "",
-  "password": "1500",
-  "chkPromocoes": "checkedValue",
+  "id": 3,
+  "nomeCompleto": "Johannes Alves",
+  "cpf": "333333",
+  "dataNascimento": "1995-11-02",
+  "email": "johannes@gmail.com",
+  "tel": "11999999",
+  "passwordEncrypted": "$2b$12$vJ/OD1itX3r4zm9sM7tijey6yCAz.QwLnt398q17O28nutDW3AkXW",
   "role": "default"
  }
 ]
