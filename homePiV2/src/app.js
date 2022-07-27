@@ -21,13 +21,14 @@ app.use(methodOverride('_method'));
 
 
 //Rotas
+const loginRouter = require('./routes/login.routes');
 const apiRouter = require('./routes/api.routes');
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/productRouter');
 const cartRouter = require('./routes/cartRouter');
 const adminRouter = require('./routes/adminRouter');
 
-
+app.use('/', loginRouter)
 app.use('/', indexRouter);
 app.use('/', cartRouter);
 app.use('/', adminRouter);

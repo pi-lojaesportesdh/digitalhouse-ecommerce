@@ -9,25 +9,6 @@ module.exports = {
             produtos, 
             title: 'Teste novo' });
     },
-    login : (req, res)  => {
-        return res.render('login', { title: 'Login' });
-    },
-    registration : (req, res) => {
-        res.render ('registration', { title: 'Cadastro'})
-    },
-    registConfirm : (req,res) => {
-        const errors = validationResult(req, res);
-        console.log("Os erros: ",errors);
-
-        if (errors.isEmpty()) {
-            res.render('registConfirm', { title: 'Cadastrado com Sucesso!' });
-
-        }else {
-            res.render('registration', { 
-                errors: errors.mapped(),
-                title : 'OPS!'});
-        }
-    },
     privacy : (req, res)  => {
         res.render('privacy', { title: 'Politica de Privacidade' });
     },

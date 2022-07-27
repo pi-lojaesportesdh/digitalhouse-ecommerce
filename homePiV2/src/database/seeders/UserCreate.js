@@ -1,11 +1,12 @@
 const fs = require('fs');
+const path = require('path')
 // Responsável por realizar a criação de usuários dentro do futuro banco de dados
 // (Modelagem do banco de dados de usuários precisa ser feita para a criação de usuários ser possível)
 // Verificando a possibilidade de realizar a criação de usuários através de uma API.
 
 const User = {
     // Indicando o caminho para a criação do usuário. (Deverá ser substituido para o banco de dados real)
-    fileName: './database/users.json',
+    fileName: path.resolve(__dirname, 'users.json'),
 
     create: function(userData) {
         let allUsers = this.getUsers();
