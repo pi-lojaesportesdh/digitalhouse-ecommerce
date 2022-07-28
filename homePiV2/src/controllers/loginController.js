@@ -20,7 +20,7 @@ module.exports = {
 
             // Se a senha coincidir ele irá fazer isso
             if(isPasswordVerified){
-                delete dataUserToLogin.senha;
+                delete dataUserToLogin.passwordEncrypted;
                 res.send('Autenticado com sucesso')
             }   
 
