@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    nome: {
+    name: {
         type: DataTypes.STRING,
     },
     cpf: {

@@ -1,4 +1,5 @@
 const db = require('../database/models');
+
 listar = async (req, res) => {
   //Buscar todos os produtos do banco
   try {

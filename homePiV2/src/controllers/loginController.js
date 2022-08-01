@@ -1,4 +1,4 @@
-const userRepository = require('../database/seeders/UserCreate');
+const userRepository = require('../database/seeders/UserCreateApi');
 const bcrypt = require('bcrypt')
 
 module.exports = {
@@ -51,8 +51,10 @@ module.exports = {
         let user = userRepository.create({nomeCompleto, cpf, dataNascimento, email, tel, passwordEncrypted});
         if(user){
             return res.render('registConfirm', {title: 'Cadastrado com sucesso'});
+        }else {
+            res.send('Algo de errado aconteceu')
         }
-        return;
+        
     },
 
 
