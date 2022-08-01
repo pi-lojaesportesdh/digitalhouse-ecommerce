@@ -5,19 +5,32 @@
       <%- include ('partials/header') %>
 
 
-        <div class="d-flex container">
+        <div class="d-flex container" id="produtoContainer">
           <% for(let i=0; i < produtos.length; i++) {%>
             <div class="row row-cols-4 p-3">
-              <div class="card" style="width: 18rem;">
+              <div class="card" id="card-product"style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">
                     <%= produtos[i].nome %>
                   </h5>
+                  <p class="card-value">
+                    <strong>R$: </strong><%= produtos[i].valor %>
+                  </p>
                   <p class="card-text">
                     <%= produtos[i].descricao %>.
                   </p>
-                  <button class="btn btn-primary" type="submit" id="buyProduct">
+                  <p class="card-id">
+                    <%= produtos[i].id %>.
+                  </p>
+                  <button class="btn btn-primary" type="submit" id="buyProduct"
+                    onclick="addCart({
+                      id: <%= produtos[i].id %>,
+                      title: '<%= produtos[i].nome %>',
+                      value: <%= produtos[i].valor %>,
+                      description: '<%= produtos[i].descricao %>'
+                    })"
+                  >
                     Comprar
                   </button>
                 </div>

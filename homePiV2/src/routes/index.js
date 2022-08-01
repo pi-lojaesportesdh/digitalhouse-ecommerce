@@ -8,7 +8,6 @@ const productController = require('../controllers/productController');
 const validateContact = require('../validations/validateContact');
 
 router.get('/', indexController.index);
-router.get('/', productController.allProducts);
 
 
 
