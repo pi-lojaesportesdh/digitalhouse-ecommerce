@@ -1,10 +1,4 @@
 
-
-// Ao clicar no mesmo produto 2x ele deve add em uma quantidade
-
-// Pg carrinho
-// Ao clicar nos botões + ou -, somar ou subtrair um produto
-// Ao clicar na lixeira excluir
 function addCart ({
     id,
     title,
@@ -17,9 +11,9 @@ function addCart ({
     cart = "[]"
    }
    const cartFormated = JSON.parse(cart)
-   const productFindedIdex =  cartFormated.findIndex( item => item.id === id)
+   const productFindedIndex =  cartFormated.findIndex( item => item.id === id)
 
-   if (productFindedIdex < 0){
+   if (productFindedIndex < 0){
     cartFormated.push({
         id,
         title,
@@ -32,3 +26,12 @@ function addCart ({
     return; 
    }
 }
+
+
+// Pg carrinho
+
+// Ao clicar no mesmo produto 2x ele deve add em uma quantidade
+
+// Ao clicar nos botões + ou -, somar ou subtrair um produto
+
+// Ao clicar na lixeira excluir
