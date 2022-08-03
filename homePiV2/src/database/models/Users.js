@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING
     },
     senha:{
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
   }, {
     sequelize,

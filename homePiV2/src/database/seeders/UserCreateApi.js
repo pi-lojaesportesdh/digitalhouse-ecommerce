@@ -40,22 +40,6 @@ detalhar = async (req, res) => {
       res.status(500).json({error: 'Houve um erro ao criar o usuário'})
     }
   }
-
-  login = async (req, res) => {
-    let {email, senha} = req.body
-    const userEmail = await db.Users.findOne({ email })
-    const userPassword = await db.Users.findOne({senha})
-
-    if(userEmail){
-      res.status(200).json('Você está autenticado')
-    }
-    if(!userEmail){
-      res.status(400).json('Usuário não existe')
-    }
-
-
-  }
-  
   
   
 //   // Excluir um usuário do banco de dados
