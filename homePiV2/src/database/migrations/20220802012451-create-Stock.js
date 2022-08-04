@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
        produto:{ 
-         type:DataTypes.STRING,
+         type:Sequelize.STRING,
        },
    
        quantidade: {
-         type:DataTypes.INTEGER,
+         type:Sequelize.INTEGER,
        },
       createdAt: {
         allowNull: false,

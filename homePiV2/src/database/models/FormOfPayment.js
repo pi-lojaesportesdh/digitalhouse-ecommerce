@@ -19,23 +19,23 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    ct_credito: {
+    ct_credit: {
         type: DataTypes.FLOAT,
     },
-    ct_debito: {
+    ct_debt: {
         type: DataTypes.FLOAT,
     },
-    dinheiro: {
+    money: {
         type: DataTypes.FLOAT,
     },
     pix: {
       type:DataTypes.INTEGER,
     },
-    boleto:{
+    ticket:{
       type: DataTypes.INTEGER,
     },
-    deposito:{
-      type: DataTypes.STRING,
+    deposit:{
+      type: DataTypes.STRING
     },
    
 
@@ -43,5 +43,14 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'FormOfPayment',
   });
+
+  //relationship between 'FormOfPayment' and 'Sales'
+  FormOfPayment.associate = (models) => {
+    FormOfPayment.hasOne(models.Sales,
+      { foreignKey: 'sales_id', 
+        as: 'sales_payment' });
+  };
+
+
   return FormOfPayment;
 };

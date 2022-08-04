@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        nome: {
+        name: {
             type: DataTypes.STRING,
         },
-        descricao: {
+        description: {
             type: DataTypes.STRING,
         },
-        valor: {
-            type: DataTypes.FLOAT,
+        price: {
+            type: DataTypes.FLOAT
         }
     },{
         sequelize,
@@ -29,5 +29,13 @@ module.exports = (sequelize, DataTypes) => {
         timeStamps:false
     });
 
+//relationship between 'Product' and 'Stock'
+Product.associate = (models) => {
+    Product.hasOne(models.Stock,
+      { foreignKey: 'amount', 
+      as: 'product_stock' });
+  };
+
+    
     return Product;
 };

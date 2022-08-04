@@ -19,5 +19,13 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Admin',
   });
+  
+//relationship between 'Users' and 'Admin'
+  Admin.associate = (models) => {
+    Admin.hasOne(models.Users,
+      { foreignKey: 'users_id', 
+      as: 'admin_user' });
+  };
+
   return Admin;
 };

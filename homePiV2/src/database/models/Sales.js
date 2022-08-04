@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
      autoIncrement: true
    },
  
-     cliente:{ 
+     client:{ 
        type:DataTypes.STRING,
      },
  
@@ -28,19 +28,19 @@ module.exports = (sequelize, DataTypes) => {
        type:DataTypes.INTEGER,
      },
  
-     data:{
+     date:{
        type: DataTypes.DATE,
      },
  
-     horario: {
+     time: {
      type:DataTypes.TIME,
      },
  
-     produto: {
+     product: {
      type:DataTypes.STRING,
      },
  
-     valor:{ 
+     price:{ 
      type:DataTypes.FLOAT
      },
 
@@ -50,5 +50,25 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Sales',
   });
+
+ //relationship between 'Sales' and 'Shoppingcart'
+  Sales.associate = (models) => {
+    Sales.belongsToMany(models.ShoppingCart,
+      { 
+        foreignKey: 'sales_id', 
+        otherkey: 'ShoppingCart_id',
+        through: 'name_id',
+        as: 'sales' 
+      });
+  };
+  
+   //relationship between 'Sales' and 'FormOfPayment'
+   Sales.associate = (models) => {
+    Sales.hasOne(models.FormOfPayment,
+      { foreignKey: 'FormOfPayment_id', 
+        as: 'payment_sales' });
+  };
+
+
   return Sales;
 };

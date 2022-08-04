@@ -35,3 +35,23 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+
+//relationship between users and addresses 
+
+/*const express = require('express');
+const { Users, Adresse } = require('./');
+
+const app = express();
+
+app.get('/Users', async (_req, res) => {
+  try {
+    const Users = await Users.findAll({
+      include: { model: Adresse, as: 'adresse' },
+    });
+    return res.status(200).json(Users);
+  } catch (e) {
+    console.log(e.message);
+    res.status(500).json({ message: 'An error has occurred' });
+  };
+});*/
