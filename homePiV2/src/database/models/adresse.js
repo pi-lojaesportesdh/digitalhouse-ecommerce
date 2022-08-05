@@ -17,14 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     id:{
       type:DataTypes.INTEGER,
       primaryKey: true,
-     autoIncrement: true
+      autoIncrement: true
      },
  
-     rua:{
-  type:DataTypes.STRING,
+     road:{
+       type:DataTypes.STRING,
      },
  
-     numero:{
+     number:{
        type:DataTypes.INTEGER,
      },
  
@@ -32,18 +32,31 @@ module.exports = (sequelize, DataTypes) => {
        type:DataTypes.INTEGER,
      },
  
-     bairro:{
+     neighborhood:{
        type: DataTypes.STRING,
      },
  
-     complemento:{
-       type:DataTypes.STRING
-     }
+     complement:{
+       type:DataTypes.INTEGER
+     },
+     adresses_id: {
+      type: DataTypes.INTEGER, 
+      foreignKey: true
+    }
  
-
   }, {
     sequelize,
     modelName: 'Adresse',
   });
+
+  //relationship between users and addresses
+  Adresse.associate = (models) => {
+    Adresse.belongsTo(models.Users,
+      { foreignKey: 'adresse_id', 
+      as: 'Users' });
+  };
+
+
   return Adresse;
+  
 };

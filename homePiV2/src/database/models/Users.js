@@ -25,36 +25,63 @@ module.exports = (sequelize, DataTypes) => {
     cpf: {
         type: DataTypes.INTEGER,
     },
-    dataNascimento: {
+    birthDate: {
         type: DataTypes.DATE,
     },
     email: {
-      type:DataTypes.STRING
+      type:DataTypes.STRING,
     },
-    telefone:{
-      type: DataTypes.INTEGER
+    fone:{
+      type: DataTypes.INTEGER,
     },
-    endereco:{
-      type: DataTypes.STRING
+    adresse:{
+      type: DataTypes.STRING,
     },
     cep:{
+      type: DataTypes.INTEGER,
+    },
+    number:{
+      type: DataTypes.INTEGER,
+    },
+    complement:{
+      type: DataTypes.STRING,
+    },
+    reference:{
+      type: DataTypes.STRING,
+    },
+    password:{
       type: DataTypes.INTEGER
-    },
-    numero:{
-      type: DataTypes.INTEGER
-    },
-    complemento:{
-      type: DataTypes.STRING
-    },
-    referencia:{
-      type: DataTypes.STRING
-    },
-    senha:{
-      type: DataTypes.STRING
     },
   }, {
     sequelize,
     modelName: 'Users',
   });
+
+  //relationship between 'Users' and 'Addresses'
+  Users.associate = (models) => {
+    Users.hasMany(models.Adresse,
+      { foreignKey: 'users_id', 
+      as: 'Adresses' });
+  };
+
+//relationship between 'Users' and 'Admin'
+  Users.associate = (models) => {
+    Users.hasOne(models.Admin,
+      { foreignKey: 'admin_id', 
+      as: 'trustee' });
+  };
+
+//relationship between 'Users' and 'ShoppingCart'
+Users.associate = (models) => {
+  Users.belongsToMany(models.ShoppingCart,
+    { 
+      foreignKey: 'Users_id', 
+      otherkey: 'ShoppingCart_id',
+      through: 'Users_ShoppingCart',
+      as: 'choosing_item' 
+    });
+};
+
+  
   return Users;
 };
