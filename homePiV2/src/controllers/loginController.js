@@ -13,16 +13,14 @@ module.exports = {
         const user = await db.Users.findOne({where: {email}})
         
         if(!user){
-            return res.status(400).json({message: 'Email não existem!'})
+            return res.status(400).json({message: 'Email ou senha não correspondem!'})
         }
-
-        console.log(typeof user.senha)
         
         if(user.senha !== senha){
-            return res.status(400).json({message: 'Email ou senha não existem!'})
+            return res.status(400).json({message: 'Email ou senha não correspondem!'})
         }
         
-        return res.json(`Olá ${email}`)
+        return res.json(`Olá ${user.name}`)
 
     },
 
