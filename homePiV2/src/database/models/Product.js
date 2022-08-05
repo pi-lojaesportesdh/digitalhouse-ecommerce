@@ -30,12 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     });
 
 //relationship between 'Product' and 'Stock'
-Product.associate = (models) => {
-    Product.hasOne(models.Stock,
-      { foreignKey: 'amount', 
-      as: 'product_stock' });
-  };
 
-    
     return Product;
 };
