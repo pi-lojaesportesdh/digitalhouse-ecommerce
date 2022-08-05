@@ -7,7 +7,7 @@ module.exports = {
 
         res.render('index', {
             produtos, 
-            title: 'Teste novo' });
+            title: 'DH_Sports' });
     },
     privacy : (req, res)  => {
         res.render('privacy', { title: 'Politica de Privacidade' });

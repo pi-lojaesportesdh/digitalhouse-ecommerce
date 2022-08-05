@@ -1,4 +1,5 @@
 const db = require('../models');
+const bcrypt = require('bcrypt')
 // Responsável por realizar a criação de usuários dentro do futuro banco de dados
 // (Modelagem do banco de dados de usuários precisa ser feita para a criação de usuários ser possível)
 // Verificando a possibilidade de realizar a criação de usuários através de uma API.
@@ -26,18 +27,19 @@ detalhar = async (req, res) => {
     }
   }
   
-  
+
   
 //   // Criar um usuário no banco de dados
   criar = async (req, res) => {
+    let {name, email, senha} = req.body
+
     try {
-      const createUser = await db.Users.create(req.body) 
-      res.status(201).json(createUser)
+      const createUser = await db.Users.create({name, email, senha}) 
+      res.status(200).json(createUser)
     }catch (err) {
       res.status(500).json({error: 'Houve um erro ao criar o usuário'})
     }
   }
-  
   
   
 //   // Excluir um usuário do banco de dados

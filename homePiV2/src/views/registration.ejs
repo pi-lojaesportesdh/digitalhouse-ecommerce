@@ -10,7 +10,7 @@
         <h1>Informe seus dados, por favor</h1>
         <%- include ('partials/errorMsg')%>
         <hr>
-        <form  action="" method="POST">
+        <form class="formUser" novalidate>
           <div class="row">
             <div class="col-sm-12 col-md-8 col-xl-6">
               <fieldset class="row">
@@ -94,6 +94,7 @@
     <footer class="pt-5">
       <%- include ('partials/footer')%>
     </footer>
+    <script src="../../js/api/apiUsers.js"></script>
     <%- include ('partials/scripts')%>
   </body>
 
