@@ -58,11 +58,11 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   //relationship between 'Users' and 'Addresses'
-  Users.associate = (models) => {
+  /*Users.associate = (models) => {
     Users.hasMany(models.Adresse,
       { foreignKey: 'users_id', 
       as: 'Adresses' });
-  };
+  };*/
 
 //relationship between 'Users' and 'Admin'
   Users.associate = (models) => {

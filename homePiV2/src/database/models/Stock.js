@@ -23,7 +23,10 @@ module.exports = (sequelize, DataTypes) => {
      product_id:{ 
        type:DataTypes.STRING,
      },
- 
+    status: {
+      type:DataTypes.STRING,
+    },
+
      amount: {
        type:DataTypes.INTEGER
      },
@@ -32,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Stock',
   });
 
-//relationship between Stock and product
+//relationship between 'Stock' and 'product'
   Stock.associate = (models) => {
     Stock.hasOne(models.Product,
       { foreignKey: 'product_id', 

@@ -14,31 +14,31 @@ module.exports = {
       cpf: {
         type:Sequelize.INTEGER,
       },
-      dataNascimento: {
+      birthDate: {
           type: Sequelize.DATE,
       },
       email: {
         type:Sequelize.STRING
       },
-      telefone:{
+      fone:{
         type: Sequelize.INTEGER
       },
-      endereco:{
+      adresse:{
         type: Sequelize.STRING
       },
       cep:{
         type: Sequelize.INTEGER
       },
-      numero:{
+      number:{
         type: Sequelize.INTEGER
       },
-      complemento:{
+      complement:{
         type: Sequelize.STRING
       },
-      referencia:{
+      reference:{
         type: Sequelize.STRING
       },
-      senha:{
+      password:{
         type: Sequelize.INTEGER
     },
       createdAt: {
@@ -51,6 +51,7 @@ module.exports = {
       }
     });
   },
+  
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
   }

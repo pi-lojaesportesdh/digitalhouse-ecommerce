@@ -8,9 +8,30 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
+        id: {
+           type: Sequelize.INTEGER
       },
+
+        ct_credit: {
+            type: Sequelize.FLOAT,
+        },
+        ct_debt: {
+            type: Sequelize.FLOAT,
+        },
+        money: {
+            type: Sequelize.FLOAT,
+        },
+        pix: {
+          type:Sequelize.INTEGER,
+        },
+        ticket:{
+          type: Sequelize.INTEGER,
+        },
+        deposit:{
+          type: Sequelize.STRING
+        },
+   
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Adresse',
   });
 
-  //relationship between users and addresses
+  //relationship between 'users' and 'addresses'
   Adresse.associate = (models) => {
     Adresse.belongsTo(models.Users,
       { foreignKey: 'adresse_id', 
