@@ -1,5 +1,10 @@
 <%- include ('partials/head')%>
 
+      <!-- Functions - carrinho -->
+      <script 
+        src="../../../js/functions/getCart.js">
+      </script>
+
   <body style="min-width: 372px;">
     <nav>
       <%- include ('partials/nav')%>
@@ -9,6 +14,7 @@
       <div class="container pb-5">
         <h1>Seu Carrinho</h1>
         <hr>
+        <% for(let i=0; i < "@homepiv2:cart".length; i++) {%>
         <ul class="list-group mb-3">
           <li class="list-group-item py-3">
             <div class="row g-3">
@@ -17,7 +23,7 @@
               </div>
                 <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
                   <h4><b><a href="" class="text-decoration-none text-danger"></a></b></h4>
-                    <h4><small>Kit completo do PSG com camisa, calção e meião de jogo.</small></h4>
+                    <h4><small><%= "@homepiv2:cart"[i].description %></small></h4>
                 </div>
                 <div class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
                   <div class="input-group">
@@ -33,8 +39,8 @@
                     </button>
                   </div>
                   <div class="text-right">
-                    <small class="text-secondary">Valor unidade:--</small>
-                    <span class="text-dark">Valor Item: R$ 550,00</span>
+                    <small class="text-secondary"></small>
+                    <span class="text-dark">Valor Item: </span>
                   </div>
                 </div>
             </div>
@@ -47,11 +53,16 @@
             </div>
           </li>
         </ul>
+        <% }%>
       </div>
     </main>
 
-    <footer class="pt-5">
+
+
+      <script 
+        src="../../../js/functions/shoopingCart.js">
+      </script>
+
       <%- include ('partials/footer')%>
-    </footer>
     <%- include ('partials/scripts')%>
   </body>

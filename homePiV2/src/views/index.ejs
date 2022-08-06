@@ -13,23 +13,23 @@
                   <img src="..." class="card-img-top" alt="...">
                   <div class="card-body text-center">
                     <h5 class="card-title">
-                      <%= produtos[i].nome %>
+                      <%= produtos[i].name %>
                     </h5>
                     <p class="card-value">
-                      <strong>R$: </strong>
-                      <%= produtos[i].valor %>
+                      <strong>R$: <%= produtos[i].price %>
+                      </strong> 
                     </p>
                     <p class="card-text">
-                      <%= produtos[i].descricao %>.
+                      <%= produtos[i].description %>.
                     </p>
                     <p class="card-id">
                       <%= produtos[i].id %>.
                     </p>
                     <button class="btn btn-primary" type="submit" id="buyProduct" onclick="addCart({
                                     id: <%= produtos[i].id %>,
-                                    title: '<%= produtos[i].nome %>',
-                                    value: <%= produtos[i].valor %>,
-                                    description: '<%= produtos[i].descricao %>'
+                                    title: '<%= produtos[i].name %>',
+                                    price: <%= produtos[i].price %>,
+                                    description: '<%= produtos[i].description %>'
                                   })">
                       Comprar
                     </button>
@@ -45,6 +45,10 @@
 
 
         <hr class="mb-5">
+        <!-- Functions - carrinho -->
+        <script 
+          src="../../../js/functions/shoopingCart.js">
+        </script>
         <%- include ('partials/footer') %>
           <%- include ('partials/scripts') %>
   </body>
