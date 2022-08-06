@@ -8,7 +8,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
-                <form action="" method="POST" class="col-sm-10 com-md-8 col-lg-6">
+                <form action="/login" method="POST" class="col-sm-10 com-md-8 col-lg-6 formLogin" >
                     <h1 class="mb-3">Faça seu Login</h1>
                     <hr>
                     <div class="form-floating mb-3">    
@@ -16,7 +16,7 @@
                         <label for="email">E-mail:</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="Sua senha" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="Sua senha" name="senha">
                         <label for="password">Senha:</label>
                     </div>
                     <div class="form-check mb-3">
@@ -46,8 +46,8 @@
     <footer>
       <%- include ('partials/footer')%>
     </footer>
+    <script src="../../js/api/apiUsersLogin.js"></script>
     <%- include ('partials/scripts')%>
-    <script src="../../js/validations/login.js"></script>
   </body>
 
   </html>
