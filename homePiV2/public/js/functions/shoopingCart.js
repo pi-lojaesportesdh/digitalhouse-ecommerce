@@ -1,34 +1,37 @@
 
-function addCart ({
+function addCart({
     id,
     title,
-    value,
+    price,
     description
-})
+}) 
+
 {
+
     let cart = localStorage.getItem("@homepiv2:cart")
-   if (!cart){
-    cart = "[]"
-   }
-   const cartFormated = JSON.parse(cart)
-   const productFindedIndex =  cartFormated.findIndex( item => item.id === id)
+    if (!cart) {
+        cart = []
+    }
+    const cartFormated = JSON.parse(cart)
+    const productFindedIndex = cartFormated.findIndex(item => item.id === id)
 
-   if (productFindedIndex < 0){
-    cartFormated.push({
-        id,
-        title,
-        value,
-        description,
-        amount: 1
-    })
 
-    localStorage.setItem("@homepiv2:cart", JSON.stringify(cartFormated))
-    return; 
-   }
+    if (productFindedIndex < 0) {
+        cartFormated.push({
+            id,
+            title,
+            price,
+            description,
+            amount: 1
+        })
+
+        localStorage.setItem("@homepiv2:cart", JSON.stringify(cartFormated))
+        return;
+    }
 }
 
 
-// Pg carrinho
+
 
 // Ao clicar no mesmo produto 2x ele deve add em uma quantidade
 
