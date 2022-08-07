@@ -31,9 +31,9 @@ const addProduct = async () => {
 
         const dataForm = 
         {
-            nome: nameProduct,
-            descricao: descProduct,
-            valor: valueProduct
+            name: nameProduct,
+            description: descProduct,
+            price: valueProduct
         }
 
         const settings = {
