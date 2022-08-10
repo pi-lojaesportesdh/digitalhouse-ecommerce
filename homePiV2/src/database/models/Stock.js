@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
 //relationship between Stock and product
   Stock.associate = (models) => {
     Stock.hasOne(models.Product,
-      { foreignKey: 'product_id', 
+      { foreignKey: 'id', 
       as: 'stock_product' });
   };
 

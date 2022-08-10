@@ -9,14 +9,16 @@ module.exports = {
     },
 
     loginPost : async (req, res) => {
-        let {email, senha} = req.body
+        let {email, password} = req.body
         const user = await db.Users.findOne({where: {email}})
-        
+            
+        console.log(user.email)
+
         if(!user){
             return res.status(400).json({message: 'Email ou senha não correspondem!'})
         }
         
-        if(user.senha !== senha){
+        if(user.password !== password){
             return res.status(400).json({message: 'Email ou senha não correspondem!'})
         }
         

@@ -60,14 +60,14 @@ module.exports = (sequelize, DataTypes) => {
   //relationship between 'Users' and 'Addresses'
   Users.associate = (models) => {
     Users.hasMany(models.Adresse,
-      { foreignKey: 'users_id', 
+      { foreignKey: 'id', 
       as: 'Adresses' });
   };
 
 //relationship between 'Users' and 'Admin'
   Users.associate = (models) => {
     Users.hasOne(models.Admin,
-      { foreignKey: 'admin_id', 
+      { foreignKey: 'id', 
       as: 'trustee' });
   };
 
@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
 Users.associate = (models) => {
   Users.belongsToMany(models.ShoppingCart,
     { 
-      foreignKey: 'Users_id', 
+      foreignKey: 'id', 
       otherkey: 'ShoppingCart_id',
       through: 'Users_ShoppingCart',
       as: 'choosing_item' 

@@ -4,15 +4,16 @@ const formUser = document.querySelector('.formUser')
 const addUser = async () => {
     formUser && formUser.addEventListener('submit', async (e) => {
         let name = document.getElementsByName('nomeCompleto')[0].value
-        let senha = document.getElementsByName('password')[0].value
+        let password = document.getElementsByName('password')[0].value
         let email = document.getElementsByName('email')[0].value
+
 
          e.preventDefault();
  
          const dataForm = 
          {
             name,
-            senha,
+            password,
             email
          }
  

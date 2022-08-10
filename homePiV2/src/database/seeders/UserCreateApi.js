@@ -31,10 +31,10 @@ detalhar = async (req, res) => {
   
 //   // Criar um usuário no banco de dados
   criar = async (req, res) => {
-    let {name, email, senha} = req.body
+    let {name, email, password} = req.body
 
     try {
-      const createUser = await db.Users.create({name, email, senha}) 
+      const createUser = await db.Users.create({name, email, password}) 
       res.status(200).json(createUser)
     }catch (err) {
       res.status(500).json({error: 'Houve um erro ao criar o usuário'})

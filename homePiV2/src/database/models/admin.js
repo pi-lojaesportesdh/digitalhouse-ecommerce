@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
 //relationship between 'Users' and 'Admin'
   Admin.associate = (models) => {
     Admin.hasOne(models.Users,
-      { foreignKey: 'users_id', 
+      { foreignKey: 'id', 
       as: 'admin_user' });
   };
 
