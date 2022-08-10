@@ -2,9 +2,9 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.addColumn("sales", "payment_id", {
+    return queryInterface.addColumn("sales", "users_id", {
       type:Sequelize.INTEGER,
-      references: { model: 'FormOfPayments', key: 'id' },
+      references: { model: 'Users', key: 'id' },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
       allowNull: true,
@@ -13,6 +13,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    return queryInterface.removeColumn("payment_id")
+    return queryInterface.removeColumn("users_id")
   }
 };

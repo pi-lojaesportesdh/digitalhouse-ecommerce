@@ -9,7 +9,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       
-
+      road:{
+        type:Sequelize.STRING,
+      },
+  
+      number:{
+        type:Sequelize.INTEGER,
+      },
+  
+      cep:{
+        type:Sequelize.INTEGER,
+      },
+  
+      neighborhood:{
+        type: Sequelize.STRING,
+      },
+  
+      complement:{
+        type:Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

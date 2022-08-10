@@ -20,11 +20,7 @@ module.exports = (sequelize, DataTypes) => {
      autoIncrement: true
    },
  
-     client:{ 
-       type:DataTypes.STRING,
-     },
- 
-     quantidade: {
+     amount: {
        type:DataTypes.INTEGER,
      },
  
@@ -34,10 +30,6 @@ module.exports = (sequelize, DataTypes) => {
  
      time: {
      type:DataTypes.TIME,
-     },
- 
-     product: {
-     type:DataTypes.STRING,
      },
  
      price:{ 

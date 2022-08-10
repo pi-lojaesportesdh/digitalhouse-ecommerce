@@ -39,7 +39,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       password:{
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
+    },
+    admin_id: {
+      type: Sequilize.INTEGER, 
+      foreignKey: true
     },
       createdAt: {
         allowNull: false,
@@ -51,7 +55,7 @@ module.exports = {
       }
     });
   },
-  
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
   }

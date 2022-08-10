@@ -50,8 +50,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     password:{
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
+    admin_id: {
+      type: DataTypes.INTEGER, 
+      foreignKey: true
+    }
   }, {
     sequelize,
     modelName: 'Users',
@@ -71,16 +75,16 @@ module.exports = (sequelize, DataTypes) => {
       as: 'trustee' });
   };
 
-//relationship between 'Users' and 'ShoppingCart'
-Users.associate = (models) => {
-  Users.belongsToMany(models.ShoppingCart,
-    { 
-      foreignKey: 'Users_id', 
-      otherkey: 'ShoppingCart_id',
-      through: 'Users_ShoppingCart',
-      as: 'choosing_item' 
-    });
-};
+// //relationship between 'Users' and 'ShoppingCart'
+// Users.associate = (models) => {
+//   Users.belongsToMany(models.ShoppingCart,
+//     { 
+//       foreignKey: 'Users_id', 
+//       otherkey: 'ShoppingCart_id',
+//       through: 'Users_ShoppingCart',
+//       as: 'choosing_item' 
+//     });
+// };
 
   
   return Users;
