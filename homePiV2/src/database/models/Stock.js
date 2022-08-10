@@ -14,24 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Stock.init({
-    id:{ 
-      type: DataTypes.INTEGER,
-     primaryKey: true,
-     autoIncrement: true
-   },
- 
-
+   
+   product_id: {
+    type: DataTypes.INTEGER,
+    foreignKey: true
+    },
     status: {
       type:DataTypes.STRING,
     },
 
      amount: {
        type:DataTypes.INTEGER
-     },
-     product_id: {
-      type: DataTypes.INTEGER,
-      foreignKey: true
-  },
+    },
+    
 
   }, {
     sequelize,

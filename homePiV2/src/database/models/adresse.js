@@ -39,10 +39,7 @@ module.exports = (sequelize, DataTypes) => {
      complement:{
        type:DataTypes.INTEGER
      },
-     adresses_id: {
-      type: DataTypes.INTEGER, 
-      foreignKey: true
-    }
+     
  
   }, {
     sequelize,
@@ -53,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
   Adresse.associate = (models) => {
     Adresse.belongsTo(models.Users,
       { foreignKey: 'adresse_id', 
-      as: 'Users' });
+      as: 'users_id' });
   };
 
 

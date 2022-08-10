@@ -6,9 +6,9 @@ module.exports = {
        product_id:{ 
          type:Sequelize.STRING,
        },
-      //  status: {
-      //   type:DataTypes.STRING
-      // },
+       status: {
+        type:Sequelize.STRING
+      },
        amount: {
          type:Sequelize.INTEGER,
        },

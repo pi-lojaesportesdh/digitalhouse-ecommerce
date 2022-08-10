@@ -61,6 +61,13 @@ module.exports = (sequelize, DataTypes) => {
         as: 'payment_sales' });
   };
 
+  //relationship between 'Sales' and 'Users'
+  Sales.associate = (models) => {
+    Sales.hasOne(models.Users,
+      { foreignKey: 'id', 
+        as: 'users_sales' });
+  };
+
 
   return Sales;
 };

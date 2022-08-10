@@ -44,5 +44,15 @@ module.exports = (sequelize, DataTypes) => {
 // };
 
 
+//relationship between 'Shoppingcart' and 'products'
+ ShoppingCart.associate = (models) => {
+  ShoppingCart.hasOne(models.Product,
+    { 
+      foreignKey: 'id', 
+      as: 'product_id' 
+    });
+};
+
+
   return ShoppingCart;
 };
