@@ -14,29 +14,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Stock.init({
-    id:{ 
-      type: DataTypes.INTEGER,
-     primaryKey: true,
-     autoIncrement: true
-   },
- 
-     product_id:{ 
-       type:DataTypes.STRING,
-     },
- 
+   
+   product_id: {
+    type: DataTypes.INTEGER,
+    foreignKey: true
+    },
+    status: {
+      type:DataTypes.STRING,
+    },
+
      amount: {
        type:DataTypes.INTEGER
-     },
+    },
+    
+
   }, {
     sequelize,
     modelName: 'Stock',
   });
 
-//relationship between Stock and product
+//relationship between 'Stock' and 'product'
   Stock.associate = (models) => {
     Stock.hasOne(models.Product,
       { foreignKey: 'id', 
-      as: 'stock_product' });
+      as: 'Product' });
   };
 
 

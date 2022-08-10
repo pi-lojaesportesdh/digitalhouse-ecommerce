@@ -50,19 +50,23 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     password:{
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
+    admin_id: {
+      type: DataTypes.INTEGER, 
+      foreignKey: true
+    }
   }, {
     sequelize,
     modelName: 'Users',
   });
 
   //relationship between 'Users' and 'Addresses'
-  Users.associate = (models) => {
+  /*Users.associate = (models) => {
     Users.hasMany(models.Adresse,
       { foreignKey: 'id', 
       as: 'Adresses' });
-  };
+  };*/
 
 //relationship between 'Users' and 'Admin'
   Users.associate = (models) => {

@@ -21,6 +21,7 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false
       },
+      
       createdAt: {
         allowNull: true,
         defaultValue: Sequelize.fn('now'),

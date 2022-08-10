@@ -22,24 +22,34 @@ module.exports = (sequelize, DataTypes) => {
 
 
  //relationship between 'Shoppingcart' and 'Sales'
- ShoppingCart.associate = (models) => {
-  ShoppingCart.belongsToMany(models.Sales,
-    { 
-      foreignKey: 'shoppingcart_id', 
-      otherkey: 'sales_id',
-      through: 'client_sales',
-      as: 'go_Buy' 
-    });
-};
+//  ShoppingCart.associate = (models) => {
+//   ShoppingCart.belongsToMany(models.Sales,
+//     { 
+//       foreignKey: 'shoppingcart_id', 
+//       otherkey: 'sales_id',
+//       through: 'client_sales',
+//       as: 'go_Buy' 
+//     });
+// };
 
  //relationship between 'Shoppingcart' and 'Users'
+//  ShoppingCart.associate = (models) => {
+//   ShoppingCart.belongsToMany(models.Users,
+//     { 
+//       foreignKey: 'shoppingcart_id', 
+//       otherkey: 'users_id',
+//       through: 'ShoppingCart_users',
+//       as: 'added_item' 
+//     });
+// };
+
+
+//relationship between 'Shoppingcart' and 'products'
  ShoppingCart.associate = (models) => {
-  ShoppingCart.belongsToMany(models.Users,
+  ShoppingCart.hasOne(models.Product,
     { 
-      foreignKey: 'shoppingcart_id', 
-      otherkey: 'users_id',
-      through: 'ShoppingCart_users',
-      as: 'added_item' 
+      foreignKey: 'id', 
+      as: 'product_id' 
     });
 };
 

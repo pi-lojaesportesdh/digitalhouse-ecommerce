@@ -20,11 +20,7 @@ module.exports = (sequelize, DataTypes) => {
      autoIncrement: true
    },
  
-     client:{ 
-       type:DataTypes.STRING,
-     },
- 
-     quantidade: {
+     amount: {
        type:DataTypes.INTEGER,
      },
  
@@ -34,10 +30,6 @@ module.exports = (sequelize, DataTypes) => {
  
      time: {
      type:DataTypes.TIME,
-     },
- 
-     product: {
-     type:DataTypes.STRING,
      },
  
      price:{ 
@@ -67,6 +59,13 @@ module.exports = (sequelize, DataTypes) => {
     Sales.hasOne(models.FormOfPayment,
       { foreignKey: 'FormOfPayment_id', 
         as: 'payment_sales' });
+  };
+
+  //relationship between 'Sales' and 'Users'
+  Sales.associate = (models) => {
+    Sales.hasOne(models.Users,
+      { foreignKey: 'id', 
+        as: 'users_sales' });
   };
 
 

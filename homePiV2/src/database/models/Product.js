@@ -22,7 +22,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         price: {
             type: DataTypes.FLOAT
-        }
+        },
+        
     },{
         sequelize,
         modelName: "Product",
@@ -30,6 +31,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
 //relationship between 'Product' and 'Stock'
+Product.associate = (models) => {
+    Product.hasOne(models.Stock,
+      { foreignKey: 'id', 
+      as: 'product_stock' });
+  };
 
+    
     return Product;
 };

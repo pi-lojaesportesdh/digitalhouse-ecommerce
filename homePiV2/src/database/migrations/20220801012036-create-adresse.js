@@ -8,8 +8,25 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
+      
+      road:{
+        type:Sequelize.STRING,
+      },
+  
+      number:{
+        type:Sequelize.INTEGER,
+      },
+  
+      cep:{
+        type:Sequelize.INTEGER,
+      },
+  
+      neighborhood:{
+        type: Sequelize.STRING,
+      },
+  
+      complement:{
+        type:Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -24,4 +41,7 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Adresses');
   }
+
+
+
 };
