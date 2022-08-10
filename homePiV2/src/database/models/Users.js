@@ -52,10 +52,7 @@ module.exports = (sequelize, DataTypes) => {
     password:{
       type: DataTypes.STRING
     },
-    admin_id: {
-      type: DataTypes.INTEGER, 
-      foreignKey: true
-    }
+
   }, {
     sequelize,
     modelName: 'Users',
