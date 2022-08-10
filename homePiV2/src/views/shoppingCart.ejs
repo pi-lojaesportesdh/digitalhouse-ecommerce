@@ -1,10 +1,5 @@
 <%- include ('partials/head')%>
 
-      <!-- Functions - carrinho -->
-      <script 
-        src="../../../js/functions/getCart.js">
-      </script>
-
   <body style="min-width: 372px;">
     <nav>
       <%- include ('partials/nav')%>
@@ -14,55 +9,55 @@
       <div class="container pb-5">
         <h1>Seu Carrinho</h1>
         <hr>
-        <% for(let i=0; i < "@homepiv2:cart".length; i++) {%>
+
         <ul class="list-group mb-3">
-          <li class="list-group-item py-3">
+          <% cart.forEach(function(item) { %>
+          <li class="list-group-item py-3" id="ul-cart">
             <div class="row g-3">
               <div class="col-4 col-md-3 col-lg-2">
-                <a href="#"><img src="/images/produtos/kit-psg-list.jpg" class="img-fluid" alt="kit-psg"></a>
+                <a href="#"><img src="#" class="img-fluid" alt=""></a>
               </div>
-                <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
-                  <h4><b><a href="" class="text-decoration-none text-danger"></a></b></h4>
-                    <h4><small><%= "@homepiv2:cart"[i].description %></small></h4>
+              <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+                <h4><b><a href="" class="text-decoration-none text-danger"><%= item.title %></a></b></h4>
+                <h4><small><%= item.description %></small></h4>
+              </div>
+              <div
+                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
+                <div class="input-group">
+                  <button class="btn btn-outline-dark btn-sm" onclick="">
+                    <i class="bi bi-caret-up-fill" style="font-size: 0.6rem;"></i>
+                  </button>
+                  <input type="text" class="form-control text-center border-dark" value= '<%= item.amount %>'>
+                  <button class="btn btn-outline-dark btn-sm">
+                    <i class="bi bi-caret-down-fill" style="font-size: 0.6rem;"></i>
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" onclick="">
+                    <i class="bi bi-trash3-fill" style="font-size: 0.6rem;"></i>
+                  </button>
                 </div>
-                <div class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                  <div class="input-group">
-                    <button class="btn btn-outline-dark btn-sm">
-                      <i class="bi bi-caret-up-fill" style="font-size: 0.6rem;"></i>
-                    </button>
-                    <input type="text" class="form-control text-center border-dark" value="4">
-                    <button class="btn btn-outline-dark btn-sm">
-                      <i class="bi bi-caret-down-fill" style="font-size: 0.6rem;"></i>
-                    </button>
-                    <button class="btn btn-outline-danger btn-sm">
-                      <i class="bi bi-trash3-fill" style="font-size: 0.6rem;"></i>
-                    </button>
-                  </div>
-                  <div class="text-right">
-                    <small class="text-secondary"></small>
-                    <span class="text-dark">Valor Item: </span>
-                  </div>
+                <div class="text-right">
+                  <small class="text-secondary"></small>
+                  <span class="text-dark">Unidade:<%= item.price %></span>
                 </div>
+              </div>
             </div>
           </li>
           <li class="list-group-item py-3">
             <div class="text-right">
-              <h4 class="text-dark mb-3">Valor Total: R$ 550,00</h4>
+              <h4 class="text-dark mb-3">Subtotal: <%= item.subTotal %></h4>
               <a href="/" class="btn btn-outline-success btn-lg">Continuar Comprando</a>
               <button class="btn btn-danger btn-lg">Fechar Compra</button>
             </div>
           </li>
         </ul>
-        <% }%>
+        <% }) %>
       </div>
     </main>
 
 
+    <script src="js/functions/shoopingCart.js">
+    </script>
 
-      <script 
-        src="../../../js/functions/shoopingCart.js">
-      </script>
-
-      <%- include ('partials/footer')%>
-    <%- include ('partials/scripts')%>
+    <%- include ('partials/footer')%>
+      <%- include ('partials/scripts')%>
   </body>
