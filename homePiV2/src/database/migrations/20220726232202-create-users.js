@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.STRING
     },
     admin_id: {
-      type: Sequilize.INTEGER, 
+      type: Sequelize.INTEGER, 
       foreignKey: true
     },
       createdAt: {

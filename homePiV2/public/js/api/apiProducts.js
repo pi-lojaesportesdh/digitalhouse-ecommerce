@@ -23,17 +23,20 @@ const getProducts = async () => {
 // 2. Criar item dentro da APi
 //POST
 const addProduct = async () => {
+    
    form && form.addEventListener('submit', async (e) => {
         e.preventDefault();
         let nameProduct = document.getElementsByName('nameProduct')[0].value
         let descProduct = document.getElementsByName('descProduct')[0].value
         let valueProduct = document.getElementsByName('valueProduct')[0].value
-
+        let imgProduct = document.getElementsByName('imgProduct')[0].value
+    
         const dataForm = 
         {
             name: nameProduct,
             description: descProduct,
-            price: valueProduct
+            price: valueProduct,
+            imgProduct: imgProduct
         }
 
         const settings = {
@@ -48,6 +51,8 @@ const addProduct = async () => {
             let response = await fetch(url, settings);
             if(response.ok){
                 console.log(await response.json())
+                console.log("imagem: ", imgProduct)
+                alert('Produto criado com sucesso');
             }
         }
         catch(err) {

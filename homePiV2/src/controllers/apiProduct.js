@@ -1,10 +1,11 @@
 const db = require('../database/models');
 
+
 listar = async (req, res) => {
   //Buscar todos os produtos do banco
   try {
     const produtos = await db.Product.findAll();
-    res.render('partials/listProducts', {teste: 'Teste do macaco louco'})
+    res.render('partials/listProducts', {teste: 'Sucesso'})
   } catch (err) {
     console.error('Erro ao tentar executar consulta:', { err });
     res.status(500).json({ error: 'Houve um erro ao acessar os produtos' });
@@ -25,19 +26,19 @@ detalhar = async (req, res) => {
   
   
   
-  // Criar um livro no banco de dados
+  // Criar um produto no banco de dados
   criar = async (req, res) => {
     try {
-      const createProduct = await db.Product.create(req.body) 
+      const createProduct = await db.Product.create(req.body);
       res.status(201).json(createProduct)
     }catch (err) {
-      res.status(500).json({error: 'Houve um erro ao criar o produto'})
+      res.status(500).json({error: `Houve um erro ao criar o produto ${err}`})
     }
   }
   
   
   
-  // Excluir um livro do banco de dados
+  // Excluir um produto do banco de dados
   excluir = async (req, res) => {
     try {
       const {id} = req.params;
@@ -53,7 +54,7 @@ detalhar = async (req, res) => {
   
   
   
-  // Alterar todos os campos de um livro
+  // Alterar todos os campos de um produto
   alterar = async (req, res) => {
     const {id} = req.params;
     try {
@@ -70,3 +71,6 @@ detalhar = async (req, res) => {
 
 
   module.exports = { listar, detalhar, criar, excluir, alterar };
+
+
+

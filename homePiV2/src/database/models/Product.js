@@ -15,13 +15,16 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true
         },
         name: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         price: {
             type: DataTypes.FLOAT
+        },
+        imgProduct: {
+            type: DataTypes.STRING
         },
         
     },{

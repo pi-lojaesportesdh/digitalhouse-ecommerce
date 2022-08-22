@@ -5,7 +5,7 @@
   <div class="container">
       <div class="row justify-content-center">
         <h1 class="row justify-content-center">Crie seu produto</h1>
-        <form class="row justify-content-center g-3 formCreateProduct" novalidate>
+        <form class="row justify-content-center g-3 formCreateProduct"  enctype="multipart/form-data" novalidate>
           <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Nome do produto:</label>
             <input type="text" name="nameProduct" class="form-control" id="validationCustom01" placeholder="Digite o nome do produto" required>
@@ -24,7 +24,7 @@
               </div>
               <div class="custon-upload">
                 <label for="formFile" class="form-label pt-3">Carregue a imagem do produto:</label>
-                <input class="form-control" type="file" id="formFile">
+                <input class="form-control" name="imgProduct" type="file" id="formFile">
               </div>
               <div class="row justify-content-center gap-3 pt-5">
                 <button class="btn btn-lg btn-primary" style= "width:45%" type="submit">Criar</button>

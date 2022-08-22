@@ -10,5 +10,9 @@ module.exports = {
 
     createProducts : (req, res) => {
         res.render('product/createProduct', { title: 'Criação de Produtos'});
+    },
+
+    purchaseEnd : (req, res) => {
+        res.render('purchaseClosing', { title: 'Finalização da compra'});
     }
 }

@@ -10,7 +10,7 @@
             <% for(let i=0; i < produtos.length; i++) {%>
               <div class="me-5 pb-3 col-sm-8 col-md-4 col-lg-2">
                 <div class="card" id="card-product" style="width: 200px">
-                  <img src="..." class="card-img-top" alt="...">
+                  <img src="<%= produtos[i].imgProduct %>" class="card-img-top" alt="<%= produtos[i].name %>">
                   <div class="card-body text-center">
                     <h5 class="card-title">
                       <%= produtos[i].name %>
@@ -29,7 +29,8 @@
                                     id: <%= produtos[i].id %>,
                                     title: '<%= produtos[i].name %>',
                                     price: <%= produtos[i].price %>,
-                                    description: '<%= produtos[i].description %>'
+                                    description: '<%= produtos[i].description %>',
+                                    image: '<%= produtos[i].imgProduct %>'
                                   })">
                       Comprar
                     </button>
