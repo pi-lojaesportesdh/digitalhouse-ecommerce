@@ -36,6 +36,7 @@ const productRouter = require("./routes/productRouter");
 const cartRouter = require("./routes/cartRouter");
 const adminRouter = require("./routes/adminRouter");
 const deleteCookie = require("./routes/deleteCookie.routes");
+const apiSales = require("./routes/apiSales.routes");
 
 app.use("/", deleteCookie);
 app.use("/", loginRouter);
@@ -46,6 +47,7 @@ app.use("/product", productRouter);
 // Rota para API
 app.use("/", apiRouter);
 app.use("/", userApiRouter);
+app.use("/product", apiSales);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

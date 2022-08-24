@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Sales extends Model {
     /**
@@ -13,61 +11,62 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Sales.init({
-    id:{ 
-      type: DataTypes.INTEGER,
-     primaryKey: true,
-     autoIncrement: true
-   },
- 
-     amount: {
-       type:DataTypes.INTEGER,
-     },
- 
-     date:{
-       type: DataTypes.DATE,
-     },
- 
-     time: {
-     type:DataTypes.TIME,
-     },
- 
-     price:{ 
-     type:DataTypes.FLOAT
-     },
+  Sales.init(
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
 
+      orderNumber: {
+        type: DataTypes.INTEGER,
+      },
 
+      amount: {
+        type: DataTypes.INTEGER,
+      },
 
-  }, {
-    sequelize,
-    modelName: 'Sales',
-  });
+      date: {
+        type: DataTypes.DATE,
+      },
 
- //relationship between 'Sales' and 'Shoppingcart'
+      time: {
+        type: DataTypes.TIME,
+      },
+
+      price: {
+        type: DataTypes.FLOAT,
+      },
+    },
+    {
+      sequelize,
+      modelName: "Sales",
+    }
+  );
+
+  //relationship between 'Sales' and 'Shoppingcart'
   Sales.associate = (models) => {
-    Sales.belongsToMany(models.ShoppingCart,
-      { 
-        foreignKey: 'sales_id', 
-        otherkey: 'ShoppingCart_id',
-        through: 'name_id',
-        as: 'sales' 
-      });
+    Sales.belongsToMany(models.ShoppingCart, {
+      foreignKey: "sales_id",
+      otherkey: "ShoppingCart_id",
+      through: "name_id",
+      as: "sales",
+    });
   };
-  
-   //relationship between 'Sales' and 'FormOfPayment'
-   Sales.associate = (models) => {
-    Sales.hasOne(models.FormOfPayment,
-      { foreignKey: 'FormOfPayment_id', 
-        as: 'payment_sales' });
+
+  //relationship between 'Sales' and 'FormOfPayment'
+  Sales.associate = (models) => {
+    Sales.hasOne(models.FormOfPayment, {
+      foreignKey: "FormOfPayment_id",
+      as: "payment_sales",
+    });
   };
 
   //relationship between 'Sales' and 'Users'
   Sales.associate = (models) => {
-    Sales.hasOne(models.Users,
-      { foreignKey: 'id', 
-        as: 'users_sales' });
+    Sales.hasOne(models.Users, { foreignKey: "id", as: "users_sales" });
   };
-
 
   return Sales;
 };

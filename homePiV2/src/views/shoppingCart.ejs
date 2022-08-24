@@ -1,68 +1,86 @@
 <%- include ('partials/head')%>
 
-  <body style="min-width: 372px;">
-    <nav>
-      <%- include ('partials/nav')%>
-    </nav>
+<body style="min-width: 372px">
+  <nav><%- include ('partials/nav')%></nav>
 
-    <main class="pb-5">
-      <div class="container pb-5">
-        <h1>Seu Carrinho</h1>
-        <hr>
-        <form action="product/purchaseClosing" method="post">
-          <% cart.forEach(function(item) { %>
-            <ul class="list-group mb-3">
-              <li class="list-group-item py-3" id="ul-cart">
-                <div class="row g-3">
-                  <div class="col-4 col-md-3 col-lg-2">
-                    <a href="#"><img src="<%= item.image %>" class="img-fluid" alt=""></a>
-                  </div>
-                  <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
-                    <h4><b><a href="" class="text-decoration-none text-danger"><%= item.title %></a></b></h4>
-                    <h4><small><%= item.description %></small></h4>
-                  </div>
-                  <div
-                    class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
-                    <div class="input-group">
-                      <button class="btn btn-outline-dark btn-sm" onclick="">
-                        <i class="bi bi-caret-up-fill" style="font-size: 0.6rem;"></i>
-                      </button>
-                      <input type="text" class="form-control text-center border-dark" value= 'Qtd. <%= item.amount %>'>
-                      <button class="btn btn-outline-dark btn-sm">
-                        <i class="bi bi-caret-down-fill" style="font-size: 0.6rem;"></i>
-                      </button>
-                      <button class="btn btn-outline-danger btn-sm" onclick="">
-                        <i class="bi bi-trash3-fill" style="font-size: 0.6rem;"></i>
-                      </button>
-                    </div>
-                    <div class="text-right">
-                      <small class="text-secondary"></small>
-                      <span class="text-dark">Cada item: R$<%= item.price %></span>
-                    </div>
-                  </div>
+  <main class="pb-5">
+    <div class="container pb-5">
+      <h1>Seu Carrinho</h1>
+      <hr />
+      <form action="product/purchaseClosing" method="GET">
+        <% cart.forEach(function(item) { %>
+        <ul class="list-group mb-3">
+          <li class="list-group-item py-3" id="ul-cart">
+            <div class="row g-3">
+              <div class="col-4 col-md-3 col-lg-2">
+                <a href="#"
+                  ><img src="<%= item.image %>" class="img-fluid" alt=""
+                /></a>
+              </div>
+              <div
+                class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center"
+              >
+                <h4>
+                  <b
+                    ><a href="" class="text-decoration-none text-danger"
+                      ><%= item.title %></a
+                    ></b
+                  >
+                </h4>
+                <h4><small><%= item.description %></small></h4>
+              </div>
+              <div
+                class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3"
+              >
+                <div class="input-group">
+                  <button class="btn btn-outline-dark btn-sm" onclick="">
+                    <i
+                      class="bi bi-caret-up-fill"
+                      style="font-size: 0.6rem"
+                    ></i>
+                  </button>
+                  <input
+                    type="text"
+                    class="form-control text-center border-dark"
+                    value="Qtd. <%= item.amount %>"
+                  />
+                  <button class="btn btn-outline-dark btn-sm">
+                    <i
+                      class="bi bi-caret-down-fill"
+                      style="font-size: 0.6rem"
+                    ></i>
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" onclick="">
+                    <i class="bi bi-trash3-fill" style="font-size: 0.6rem"></i>
+                  </button>
                 </div>
-              </li>
-              <li class="list-group-item py-3">
                 <div class="text-right">
-                  <h4 class="text-dark mb-3">Subtotal: <%= item.subTotal %></h4>
+                  <small class="text-secondary"></small>
+                  <span class="text-dark">Cada item: R$<%= item.price %></span>
                 </div>
-              </li>
-            </ul>
-            <% }) %>
-            <div class=" mb-5">
-              <a href="/" class="btn btn-outline-success btn-lg">Continuar Comprando</a>
-              <button type="submit" class="btn btn-danger btn-lg">Fechar Compra</button>
+              </div>
             </div>
-        </form>
-        
-      </div>
-      
-    </main>
+          </li>
+          <li class="list-group-item py-3">
+            <div class="text-right">
+              <h4 class="text-dark mb-3">Subtotal: <%= item.subTotal %></h4>
+            </div>
+          </li>
+        </ul>
+        <% }) %>
+        <div class="mb-5">
+          <a href="/" class="btn btn-outline-success btn-lg"
+            >Continuar Comprando</a
+          >
+          <button type="submit" class="btn btn-danger btn-lg">
+            Fechar Compra
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
 
+  <script src="js/functions/shoopingCart.js"></script>
 
-    <script src="js/functions/shoopingCart.js">
-    </script>
-
-    <%- include ('partials/footer')%>
-      <%- include ('partials/scripts')%>
-  </body>
+  <%- include ('partials/footer')%> <%- include ('partials/scripts')%>
+</body>

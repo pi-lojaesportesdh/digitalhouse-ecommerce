@@ -31,7 +31,10 @@ module.exports = {
 
   //GET
   registration: (req, res) => {
-    res.render("registration", { title: "Cadastro" });
+    res.render("registration", {
+      title: "Cadastro",
+      userEmail: req.cookies.email,
+    });
   },
 
   //POST
