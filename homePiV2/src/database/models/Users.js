@@ -1,7 +1,6 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
+const Sales = require("./Order");
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
     /**
@@ -13,76 +12,58 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Users.init({
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
-    name: {
-        type: DataTypes.STRING,
-    },
-    cpf: {
+  Users.init(
+    {
+      id: {
         type: DataTypes.INTEGER,
-    },
-    birthDate: {
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+      },
+      cpf: {
+        type: DataTypes.INTEGER,
+      },
+      birthDate: {
         type: DataTypes.DATE,
+      },
+      email: {
+        type: DataTypes.STRING,
+      },
+      fone: {
+        type: DataTypes.INTEGER,
+      },
+      adresse: {
+        type: DataTypes.STRING,
+      },
+      cep: {
+        type: DataTypes.INTEGER,
+      },
+      number: {
+        type: DataTypes.INTEGER,
+      },
+      complement: {
+        type: DataTypes.STRING,
+      },
+      reference: {
+        type: DataTypes.STRING,
+      },
+      password: {
+        type: DataTypes.STRING,
+      },
     },
-    email: {
-      type:DataTypes.STRING,
-    },
-    fone:{
-      type: DataTypes.INTEGER,
-    },
-    adresse:{
-      type: DataTypes.STRING,
-    },
-    cep:{
-      type: DataTypes.INTEGER,
-    },
-    number:{
-      type: DataTypes.INTEGER,
-    },
-    complement:{
-      type: DataTypes.STRING,
-    },
-    reference:{
-      type: DataTypes.STRING,
-    },
-    password:{
-      type: DataTypes.STRING
-    },
+    {
+      sequelize,
+      modelName: "Users",
+    }
+  );
 
-  }, {
-    sequelize,
-    modelName: 'Users',
-  });
-
-  //relationship between 'Users' and 'Addresses'
-  /*Users.associate = (models) => {
-    Users.hasMany(models.Adresse,
-      { foreignKey: 'id', 
-      as: 'Adresses' });
-  };*/
-
-//relationship between 'Users' and 'Admin'
   Users.associate = (models) => {
-    Users.hasOne(models.Admin,
-      { foreignKey: 'id', 
-      as: 'trustee' });
+    Users.hasMany(models.Order, {
+      foreignKey: "user_id",
+    });
   };
 
-//relationship between 'Users' and 'ShoppingCart'
-Users.associate = (models) => {
-  Users.belongsToMany(models.ShoppingCart,
-    { 
-      foreignKey: 'id', 
-      otherkey: 'ShoppingCart_id',
-      through: 'Users_ShoppingCart',
-      as: 'choosing_item' 
-    });
-};
-
-  
   return Users;
 };

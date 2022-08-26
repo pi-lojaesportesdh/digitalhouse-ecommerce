@@ -26,6 +26,7 @@ module.exports = {
     }
 
     res.cookie("email", user.email);
+    res.cookie("idUser", user.id);
     res.redirect("/");
   },
 

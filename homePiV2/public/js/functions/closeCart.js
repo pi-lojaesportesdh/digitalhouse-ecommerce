@@ -62,6 +62,12 @@ formPurchaseClosing &&
       tempData.push({ price, amount, orderNumber });
     }
 
+    /*
+      Objetivo: Quando o usuário clicar em finalizar a compra o ID do usuário tem que estar assossiado a compra!
+      Depois que o usuário clicar em finalizar a compra, deverá sumir o coookie @home.. 
+      Verificar se existe o email dentro do cookie
+    */
+
     const settings = {
       method: "POST",
       headers: {
