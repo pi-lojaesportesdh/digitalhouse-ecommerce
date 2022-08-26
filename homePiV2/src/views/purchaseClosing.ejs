@@ -2,34 +2,43 @@
 
   <body class="min-width: 375px">
     <%- include ('partials/nav') %>
-      
-
-        <main class="container mb-5">
-              
-          <h1>Fechamento da compra</h1>
-          <div class="">
-            <form action="" method="post" class="formPurchaseClosing">
-                <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Pedido número: </h5>
-                      <p class="card-text">Seus itens: </p>
-                      <p class="card-text">Total de itens: </p>
-                      <p class="card-text">Valor total da compra: R$: <%= total %></p>
-                      <button type="submit" class="btn btn-warning">Finalizar a compra</button>
-                    </div>
-                  </div>
-                </div>
-            </form>
-        </main>
 
 
+      <main class="container mb-5">
+
+
+        <h1>Fechamento da compra</h1>
+        <div class="">
+          <form action="" method="post" class="formPurchaseClosing">
+            <div class="card" style="width: 18rem;">
+              <img src="..." class="card-img-top" alt="...">
+              <div class="card-body">
+                <p class="card-text">Seus itens: <br>
+                  <% cart.forEach(element=> { %>
+                    <strong>
+                      <%= element.title %>
+                    </strong></br>
+                    <% }) %>
+                </p>
+                <p class="card-text">Total de itens: <strong>
+                    <%= sumItems %>
+                  </strong> </p>
+                </p>
+                <p class="card-text">Valor total da compra: <strong>R$:<%= total %> </strong></p>
+                <button type="submit" class="btn btn-warning">Finalizar a compra</button>
+              </div>
+            </div>
+        </div>
+        </form>
+      </main>
 
 
 
-        <hr class="mb-5">
-        <!-- Functions - carrinho -->
-        <script src="../../js/functions/closeCart.js"></script>
-        <%- include ('partials/footer') %>
-          <%- include ('partials/scripts') %>
+
+
+      <hr class="mb-5">
+      <!-- Functions - carrinho -->
+      <script src="../../js/functions/closeCart.js"></script>
+      <%- include ('partials/footer') %>
+        <%- include ('partials/scripts') %>
   </body>

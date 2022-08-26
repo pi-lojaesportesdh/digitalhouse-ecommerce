@@ -49,19 +49,26 @@ module.exports = {
     const cartFormated = cart.map((item) => ({
       ...item,
       subTotal: item.price * item.amount,
+      totalItems: item.amount,
     }));
+    console.log(cartFormated);
+
     const total = cartFormated.reduce(
       (acc, current) => acc + Number(current.subTotal),
       0
     );
 
-    console.log(cartFormated);
+    const sumItems = cartFormated.reduce(
+      (acc, current) => acc + Number(current.amount),
+      0
+    );
 
     res.render("purchaseClosing", {
       title: "Finalização da compra",
       userEmail: req.cookies.email,
       cart: cartFormated,
       total,
+      sumItems,
     });
   },
 };
