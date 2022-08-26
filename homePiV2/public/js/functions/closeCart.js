@@ -57,8 +57,10 @@ formPurchaseClosing &&
     const itemsFilter = itemsCart.map((item) => {
       const price = item.price;
       const amount = item.amount;
+      const product_id = item.id;
 
       const dataFormated = {
+        product_id,
         price,
         quantity: amount,
       };

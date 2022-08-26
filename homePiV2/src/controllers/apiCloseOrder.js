@@ -33,13 +33,21 @@ createOrder = async (req, res) => {
     total: totalOrderValue,
   };
 
+  const tempData = [];
   const createOrder = await db.Order.create(dataToOrder);
   const order_id = createOrder.dataValues.id;
 
-  console.log(data);
+  for (let obj of data) {
+    tempData.push({
+      price: obj.price,
+      quantity: obj.quantity,
+      order_id,
+      product_id: obj.product_id,
+    });
+  }
 
   if (createOrder) {
-    const createOrderItem = await db.OrderItem.bulkCreate(req.body.itemsFilter);
+    const createOrderItem = await db.OrderItem.bulkCreate(tempData);
   }
 };
 
