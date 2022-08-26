@@ -80,7 +80,6 @@ formPurchaseClosing &&
       let response = fetch(urlPurchaseClosing, settings);
       if (response.ok) {
         console.log(response.json());
-        console.log("Venda criada");
       }
     } catch (err) {
       console.log(err);
