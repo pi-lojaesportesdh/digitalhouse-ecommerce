@@ -1,0 +1,30 @@
+<%- include ('partials/head') %>
+
+    <body class="min-width: 375px">
+        <%- include ('partials/nav') %>
+
+
+            <main class="container-fluid mb-5">
+                <h1 class="text-center text-uppercase" style="color: green; ">Compra efetuada com sucesso!</h1>
+                    <form action="" method="post" class="formPurchaseClosing">
+                        <div class="card" style="width: 18rem; margin:auto">
+                            <div class="card-body">
+                              <h5 class="card-title">Número do pedido: </h5>
+                              <p class="card-text"><strong>Ex 45645654654</strong></p>
+                              <div class="d-flex gap-2">
+                                  <a href="#" class="btn btn-warning">Acompanhar pedido</a>
+                                  <a href="/" class="btn btn-success">Continuar comprando</a>
+                              </div>
+                            </div>
+                          </div>
+                    </form>
+            </main>
+
+
+
+
+
+            <hr class="mb-5">
+            <%- include ('partials/footer') %>
+                <%- include ('partials/scripts') %>
+    </body>

@@ -71,4 +71,18 @@ module.exports = {
       sumItems,
     });
   },
+
+  orderSuccess: (req, res) => {
+    res.render("orderSuccess", {
+      title: "Finalização da compra",
+      userEmail: req.cookies.email
+    });
+  },
+
+  orderTrack: (req, res) => {
+    res.render("orderTrack", {
+      title: "Finalização da compra",
+      userEmail: req.cookies.email
+    })
+  }
 };

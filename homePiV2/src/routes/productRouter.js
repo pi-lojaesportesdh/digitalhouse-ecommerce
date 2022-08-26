@@ -1,18 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../controllers/productController");
-const multer = require("multer");
-const multerMidd = require("../middlewares/upLoadImg");
 
 /* GET product page. */
 router.get("/allProduct", productController.allProducts);
 router.get("/createProduct", productController.createProducts);
-router.post(
-  "/createProduct",
-  multer(multerMidd).single("imgProduct"),
-  productController.createProducts
-);
+router.post( "/createProduct", productController.createProducts);
 router.get("/purchaseClosing", productController.purchaseEnd);
+router.get("/orderSuccess", productController.orderSuccess);
+router.get("/orderTrack", productController.orderTrack);
 
 // TODO: Rota para a criação de produtos
 
