@@ -8,54 +8,28 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      OrderItem.associate = (models) => {
+        OrderItem.belongsTo(models.Order, { foreignKey: "id" });
+      };
     }
   }
   OrderItem.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      name: DataTypes.STRING,
-
       order_id: {
         type: DataTypes.INTEGER,
         foreignKey: true,
       },
-
       product_id: {
         type: DataTypes.INTEGER,
+        foreignKey: true,
       },
-
-      quantity: {
-        type: DataTypes.INTEGER,
-      },
-
-      price: {
-        type: DataTypes.FLOAT,
-      },
+      quantity: DataTypes.INTEGER,
+      price: DataTypes.FLOAT,
     },
     {
       sequelize,
       modelName: "OrderItem",
     }
   );
-
-  //relationship between 'OrderItem' and 'products'
-  OrderItem.associate = (models) => {
-    OrderItem.hasOne(models.Product, {
-      foreignKey: "id",
-      as: "product_id",
-    });
-  };
-
-  OrderItem.associate = (models) => {
-    OrderItem.belongsTo(models.Order, {
-      foreignKey: "id",
-    });
-  };
-
   return OrderItem;
 };

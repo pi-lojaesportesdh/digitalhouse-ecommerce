@@ -1,4 +1,5 @@
 const KEY_STORAGE = "@homepiv2:cart";
+const KEY_IDUser = "idUser";
 let urlPurchaseClosing = "purchaseClosing";
 let formPurchaseClosing = document.querySelector(".formPurchaseClosing");
 
@@ -36,10 +37,22 @@ function getCart() {
   return cart;
 }
 
+function getIdUser() {
+  let IDUser = getCookie(KEY_IDUser);
+  if (!IDUser) {
+    IDUser = "[]";
+  }
+
+  IDUser = JSON.parse(IDUser);
+
+  return IDUser;
+}
+
 formPurchaseClosing &&
   formPurchaseClosing.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const user_id = getIdUser();
     const itemsCart = getCart();
     const itemsFilter = itemsCart.map((item) => {
       const price = item.price;
@@ -47,33 +60,18 @@ formPurchaseClosing &&
 
       const dataFormated = {
         price,
-        amount,
+        quantity: amount,
       };
 
       return dataFormated;
     });
-
-    // GAMBIARRA QUE FUNCIONA!
-    const tempData = [];
-    const orderNumber = Math.floor(Math.random() * 1000);
-    for (let item of itemsFilter) {
-      const price = item.price;
-      const amount = item.amount;
-      tempData.push({ price, amount, orderNumber });
-    }
-
-    /*
-      Objetivo: Quando o usuário clicar em finalizar a compra o ID do usuário tem que estar assossiado a compra!
-      Depois que o usuário clicar em finalizar a compra, deverá sumir o coookie @home.. 
-      Verificar se existe o email dentro do cookie
-    */
 
     const settings = {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(tempData),
+      body: JSON.stringify({ user_id, itemsFilter }),
     };
 
     try {

@@ -1,6 +1,5 @@
 "use strict";
 const { Model } = require("sequelize");
-const Sales = require("./Order");
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
     /**
@@ -9,61 +8,31 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Users.associate = (models) => {
+        Users.hasMany(models.Order, {
+          foreignKey: "user_id",
+        });
+      };
     }
   }
   Users.init(
     {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      name: {
-        type: DataTypes.STRING,
-      },
-      cpf: {
-        type: DataTypes.INTEGER,
-      },
-      birthDate: {
-        type: DataTypes.DATE,
-      },
-      email: {
-        type: DataTypes.STRING,
-      },
-      fone: {
-        type: DataTypes.INTEGER,
-      },
-      adresse: {
-        type: DataTypes.STRING,
-      },
-      cep: {
-        type: DataTypes.INTEGER,
-      },
-      number: {
-        type: DataTypes.INTEGER,
-      },
-      complement: {
-        type: DataTypes.STRING,
-      },
-      reference: {
-        type: DataTypes.STRING,
-      },
-      password: {
-        type: DataTypes.STRING,
-      },
+      name: DataTypes.STRING,
+      cpf: DataTypes.INTEGER,
+      birthDate: DataTypes.DATE,
+      email: DataTypes.STRING,
+      fone: DataTypes.INTEGER,
+      adresse: DataTypes.STRING,
+      cep: DataTypes.INTEGER,
+      number: DataTypes.INTEGER,
+      complement: DataTypes.STRING,
+      reference: DataTypes.STRING,
+      password: DataTypes.STRING,
     },
     {
       sequelize,
       modelName: "Users",
     }
   );
-
-  Users.associate = (models) => {
-    Users.hasMany(models.Order, {
-      foreignKey: "user_id",
-    });
-  };
-
   return Users;
 };

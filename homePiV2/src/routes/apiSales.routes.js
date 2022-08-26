@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const apiCloseSale = require("../controllers/apiCloseSale");
+const apiCloseOrder = require("../controllers/apiCloseOrder");
 
-router.post("/purchaseClosing", apiCloseSale.createSale);
+router.post("/purchaseClosing", apiCloseOrder.createOrder);
 
 module.exports = router;
