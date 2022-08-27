@@ -78,9 +78,7 @@ formPurchaseClosing &&
 
     try {
       let response = fetch(urlPurchaseClosing, settings);
-      if (response.ok) {
-        console.log(response.json());
-      }
+      window.location.href = "http://localhost:3000/product/orderSuccess";
     } catch (err) {
       console.log(err);
     }

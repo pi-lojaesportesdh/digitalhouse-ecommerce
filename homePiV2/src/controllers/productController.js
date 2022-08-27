@@ -1,4 +1,6 @@
 // TODO: Criar o controller para a criação de usuários e produtos.
+const db = require("../database/models");
+const { Sequelize } = require("sequelize");
 
 module.exports = {
   async allProducts(req, res) {
@@ -72,17 +74,39 @@ module.exports = {
     });
   },
 
-  orderSuccess: (req, res) => {
+  orderSuccess: async (req, res) => {
+    console.log(req.body);
+    const OrderId = await db.Order.findOne({
+      where: {
+        user_id: req.cookies.idUser,
+      },
+      order: [["createdAt", "DESC"]],
+    });
+
+    console.log(OrderId.id);
+
     res.render("orderSuccess", {
       title: "Finalização da compra",
-      userEmail: req.cookies.email
+      userEmail: req.cookies.email,
+      OrderId: OrderId.id,
     });
   },
 
-  orderTrack: (req, res) => {
-    res.render("orderTrack", {
-      title: "Finalização da compra",
-      userEmail: req.cookies.email
-    })
-  }
+  orderTrack: async (req, res) => {
+    try {
+      const Order = await db.Order.findAll({
+        where: {
+          user_id: req.cookies.idUser,
+        },
+      });
+
+      res.render("orderTrack", {
+        title: "Finalização da compra",
+        userEmail: req.cookies.email,
+        Order,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

@@ -38,22 +38,4 @@ createOrder = async (req, res) => {
   }
 };
 
-Order = async (req, res) => {
-  /* 
-  1. Aqui eu deverei fazer com que mostre os pedidos dos usuários.
-  Porém eu vou mostrar somente o pedido do usuário com o id específico
-  
-  */
-  try {
-    const searchOrder = await db.Order.findAll({
-      where: {
-        user_id: req.cookies.idUser,
-      },
-    });
-    res.send(searchOrder);
-  } catch (err) {
-    res.status(500).json({ error: "Houve um erro ao detalhar o pedido!" });
-  }
-};
-
-module.exports = { createOrder, Order };
+module.exports = { createOrder };
