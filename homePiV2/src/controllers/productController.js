@@ -53,7 +53,6 @@ module.exports = {
       subTotal: item.price * item.amount,
       totalItems: item.amount,
     }));
-    console.log(cartFormated);
 
     const total = cartFormated.reduce(
       (acc, current) => acc + Number(current.subTotal),
@@ -75,15 +74,12 @@ module.exports = {
   },
 
   orderSuccess: async (req, res) => {
-    console.log(req.body);
     const OrderId = await db.Order.findOne({
       where: {
         user_id: req.cookies.idUser,
       },
       order: [["createdAt", "DESC"]],
     });
-
-    console.log(OrderId.id);
 
     res.render("orderSuccess", {
       title: "Finalização da compra",

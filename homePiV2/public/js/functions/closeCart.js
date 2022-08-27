@@ -48,6 +48,10 @@ function getIdUser() {
   return IDUser;
 }
 
+const deleteCookie = (name) => {
+  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+};
+
 formPurchaseClosing &&
   formPurchaseClosing.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -78,6 +82,7 @@ formPurchaseClosing &&
 
     try {
       let response = fetch(urlPurchaseClosing, settings);
+      deleteCookie("@homepiv2:cart");
       window.location.href = "http://localhost:3000/product/orderSuccess";
     } catch (err) {
       console.log(err);
