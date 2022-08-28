@@ -2,7 +2,7 @@
 
   <body style="min-width: 372px;">
     <nav>
-      <%- include ('partials/nav')%>
+      <%- include ('partials/nav', {userEmail:false})%>
     </nav>
 
     <main class="pb-5">
@@ -10,7 +10,7 @@
         <h1>Informe seus dados, por favor</h1>
         <%- include ('partials/errorMsg')%>
         <hr>
-        <form class="formUser" novalidate>
+        <form class="formUser" method="post" novalidate>
           <div class="row">
             <div class="col-sm-12 col-md-8 col-xl-6">
               <fieldset class="row">
@@ -94,7 +94,8 @@
     <footer class="pt-5">
       <%- include ('partials/footer')%>
     </footer>
-    <script src="../../js/api/apiUsers.js"></script>
+    <script src="/js/validations/regist.js"></script>
+
     <%- include ('partials/scripts')%>
   </body>
 

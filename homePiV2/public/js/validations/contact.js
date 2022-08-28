@@ -1,9 +1,10 @@
 window.onload = function(){
     console.log("loaded page")
 }
-const formulario = document.querySelector('#formLogin')
-const inputEmail = document.querySelector('input[name="email"]')
-const inputPassword = document.getElementsByName('password')[0]
+const formulario = document.querySelector('#contactConfirm')
+const inputEmail = document.getElementById('txtEmail')
+const inputName = document.getElementById('textNome')
+const inputMessege = document.getElementById('txtMensagem')
 
 // Essa função poderá ser utilizada em qlq
 const showPopup = (err) => {
@@ -13,21 +14,16 @@ const showPopup = (err) => {
     })
 }
 
-const validationsInputs = (inputEmail, inputPassword) => {
+const validationsInputs = (inputEmail, inputName, inputMessege) => {
     /* 
     1. Irei validar se o campo email e senha estão vazios.
     2. Se caso estiver vazio irei enviar um pop-up contendo a msg de erro.
     3. O que eu preciso fazer é que o pop-up o text dentro dele seja universal e esteja aberto a receber o erro de uma ou de outra validação
     */
-/*     if(!inputEmail.value || inputEmail == '' && !inputPassword.value || inputPassword == ''){
-        let msgError = 'O email e senha não podem ser vazios!'
+     if(!inputName.value || inputName == '' ){
+        let msgError = 'Quem vc seria??!'
         return showPopup(msgError)
-    } */
-    if(!inputPassword.value || inputPassword == ''){
-        let msgError = 'A senha não pode ser vazia'
-        return showPopup(msgError)
-    }
-
+    } 
 
     if(!inputEmail.value || inputEmail == ''){
         let msgError = 'O email não pode ser vazio'
@@ -37,8 +33,8 @@ const validationsInputs = (inputEmail, inputPassword) => {
         let msgError = 'Email invalido'
         return showPopup(msgError)
     }
-    if(inputPassword.value.length <= 5 ) {
-     let msgError = 'Senha Invalida'
+    if(inputMessege.value.length <= 15) {
+     let msgError = 'Conteúdo indescrito ...'
      return showPopup(msgError)
     }
 
@@ -46,12 +42,11 @@ const validationsInputs = (inputEmail, inputPassword) => {
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-    const cadastrar = ()=>{
-        alert('botão clicado')
-    }
     validationsInputs(
         inputEmail,
-         inputPassword
+        inputMessege,
+        inputName
          )
-})
+}
+)
 

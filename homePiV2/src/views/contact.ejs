@@ -1,12 +1,14 @@
 <%- include ('partials/head')%>
   <body style="min-width: 372px;">
-      <%- include ('partials/nav')%>
+      <nav>
+        <%- include ('partials/nav')%>
+      </nav>
     <main>
         <div class="container">
             <h1 class="row justify-content-center mb-3">Entre em Contato</h1>
             <div class="row justify-content-center">
               <%- include ('partials/errorMsg')%>
-                <form action="contactConfirm" method="POST" class="col-sm-10 col-md-8 col-lg-6">
+                <form id="contactConfirm" action="contactConfirm" method="POST" class="col-sm-10 col-md-8 col-lg-6">
                     <div class="form-floating mb-3">
                       <input type="text" name="nome" placeholder="Nome completo" class="form-control" id="textNome" >
                         <label for="txtNome" class="form-label">Nome:</label>
@@ -30,7 +32,7 @@
                 </form>
             </div>
     </main>
-
+<script src="/js/validations/contact.js"></script>
     <%- include ('partials/footer')%>
     <%- include ('partials/scripts')%>
   </body>

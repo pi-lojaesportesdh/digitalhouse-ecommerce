@@ -18,6 +18,6 @@ router.post('/login', loginController.loginPost)
 router.get('/registration', loginController.registration);
 
 // POST?
-//router.post('/registConfirm', validateRegist, loginController.registConfirm);
+router.post('/registConfirm', validateRegist, loginController.registConfirm);
 
 module.exports = router;
