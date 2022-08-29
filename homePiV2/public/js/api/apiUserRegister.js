@@ -74,18 +74,7 @@ const addUser = async () => {
     
 }
 
-const detailProduct = async () => {
 
-    try {
-        let response = await fetch(url);
-        if(response.ok){
-            console.log(await response.json())
-        }
-    }
-    catch(err) {
-        console.log('Falha ao tentar detalhar o produto!')
-    }
-}
 
 
 /* addProduct()

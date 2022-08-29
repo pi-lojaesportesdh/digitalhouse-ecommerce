@@ -46,9 +46,6 @@ const validationsInputs = (inputEmail, inputPassword) => {
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
-    const cadastrar = ()=>{
-        alert('botão clicado')
-    }
     validationsInputs(
         inputEmail,
          inputPassword

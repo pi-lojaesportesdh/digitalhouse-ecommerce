@@ -17,6 +17,8 @@ module.exports = {
 
     if (logout) {
       res.clearCookie("email");
+      res.clearCookie("idUser");
+      res.clearCookie("@homepiv2:cart");
       res.redirect("/");
     }
   },

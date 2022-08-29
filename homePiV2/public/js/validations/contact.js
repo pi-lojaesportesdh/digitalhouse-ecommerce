@@ -20,7 +20,7 @@ const validationsInputs = (inputEmail, inputName, inputMessege) => {
     2. Se caso estiver vazio irei enviar um pop-up contendo a msg de erro.
     3. O que eu preciso fazer é que o pop-up o text dentro dele seja universal e esteja aberto a receber o erro de uma ou de outra validação
     */
-     if(!inputName.value || inputName == '' ){
+     if(inputName == '' ){
         let msgError = 'Quem vc seria??!'
         return showPopup(msgError)
     } 

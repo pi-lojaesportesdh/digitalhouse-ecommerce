@@ -58,19 +58,6 @@ detalhar = async (req, res) => {
   
   
   
-//   // Alterar todos os campos de um livro
-//   alterar = async (req, res) => {
-//     const {id} = req.params;
-//     try {
-//       const alterProduct = await db.Product.update(req.body ,{
-//         where: {id}
-//       })
-//       res.json(alterProduct)
-//     }
-//     catch (err) {
-//       res.status(500).json({error: `Houve um erro ao alterar o produto`})
-//     }
-//   }
 
 
 

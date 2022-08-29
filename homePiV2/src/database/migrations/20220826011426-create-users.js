@@ -12,39 +12,35 @@ module.exports = {
         type: Sequelize.STRING
       },
       cpf: {
-        type:Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       birthDate: {
-          type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       email: {
-        type:Sequelize.STRING
+        type: Sequelize.STRING
       },
-      fone:{
+      fone: {
         type: Sequelize.INTEGER
       },
-      adresse:{
+      adresse: {
         type: Sequelize.STRING
       },
-      cep:{
+      cep: {
         type: Sequelize.INTEGER
       },
-      number:{
+      number: {
         type: Sequelize.INTEGER
       },
-      complement:{
+      complement: {
         type: Sequelize.STRING
       },
-      reference:{
+      reference: {
         type: Sequelize.STRING
       },
-      password:{
+      password: {
         type: Sequelize.STRING
-    },
-    admin_id: {
-      type: Sequelize.INTEGER, 
-      foreignKey: true
-    },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -55,7 +51,6 @@ module.exports = {
       }
     });
   },
-
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
   }

@@ -1,14 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const multer = require('multer');
-const multerMidd = require('../middlewares/upLoadImg')
 
-const apiController = require('../controllers/apiProduct');
+const apiController = require("../controllers/apiProduct");
 
-router.get('/api', apiController.listar);
-router.get('/api/:id', apiController.detalhar);
-router.post('/api', multer(multerMidd).single('imgProduct'), apiController.criar);
-router.delete('/api/:id', apiController.excluir);
-router.put('/api/:id', apiController.alterar);
+router.get("/api", apiController.listar);
+router.get("/api/:id", apiController.detalhar);
+router.post("/api", apiController.criar);
+router.delete("/api/:id", apiController.excluir);
+router.put("/api/:id", apiController.alterar);
 
 module.exports = router;

@@ -26,12 +26,16 @@ module.exports = {
     }
 
     res.cookie("email", user.email);
+    res.cookie("idUser", user.id);
     res.redirect("/");
   },
 
   //GET
   registration: (req, res) => {
-    res.render("registration", { title: "Cadastro" });
+    res.render("registration", {
+      title: "Cadastro",
+      userEmail: req.cookies.email,
+    });
   },
 
   //POST

@@ -2,57 +2,24 @@
 
 <body class="min-width: 375px">
   <%- include ('partials/nav') %>
-
-<<<<<<< HEAD
-        <main class="container mb-5">
-          <%- include ('partials/header') %>
-          <div class="row justify-content-center pb-5 mx-auto" id="produtoContainer">
-            <% for(let i=0; i < produtos.length; i++) {%>
-              <div class="me-5 pb-3 col-sm-8 col-md-4 col-lg-2">
-                <div class="card" id="card-product" style="width: 200px">
-                  <img src="<%= produtos[i].imgProduct %>" class="card-img-top" alt="<%= produtos[i].name %>">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">
-                      <%= produtos[i].name %>
-                    </h5>
-                    <p class="card-value">
-                      <strong>R$: <%= produtos[i].price %>
-                      </strong> 
-                    </p>
-                    <p class="card-text">
-                      <%= produtos[i].description %>.
-                    </p>
-                    <p class="card-id">
-                      <%= produtos[i].id %>.
-                    </p>
-                    <button class="btn btn-primary" type="submit" id="buyProduct" onclick="addToCart({
-                                    id: <%= produtos[i].id %>,
-                                    title: '<%= produtos[i].name %>',
-                                    price: <%= produtos[i].price %>,
-                                    description: '<%= produtos[i].description %>',
-                                    image: '<%= produtos[i].imgProduct %>'
-                                  })">
-                      Comprar
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <% }%>
-=======
   <main class="container mb-5">
     <%- include ('partials/header') %>
     <div class="row justify-content-center pb-5 mx-auto" id="produtoContainer">
       <% for(let i=0; i < produtos.length; i++) {%>
       <div class="me-5 pb-3 col-sm-8 col-md-4 col-lg-2">
         <div class="card" id="card-product" style="width: 200px">
-          <img src="..." class="card-img-top" alt="..." />
+          <img
+            src="<%= produtos[i].imgProduct %>"
+            class="card-img-top"
+            alt="<%= produtos[i].name %>"
+          />
           <div class="card-body text-center">
             <h5 class="card-title"><%= produtos[i].name %></h5>
             <p class="card-value">
               <strong>R$: <%= produtos[i].price %> </strong>
             </p>
             <p class="card-text"><%= produtos[i].description %>.</p>
-            <p class="card-id"><%= produtos[i].id %>.</p>
+
             <button
               class="btn btn-primary"
               type="submit"
@@ -61,12 +28,12 @@
                                     id: <%= produtos[i].id %>,
                                     title: '<%= produtos[i].name %>',
                                     price: <%= produtos[i].price %>,
-                                    description: '<%= produtos[i].description %>'
+                                    description: '<%= produtos[i].description %>',
+                                    image: '<%= produtos[i].imgProduct %>'
                                   })"
             >
               Comprar
             </button>
->>>>>>> b312e4e03a75f886799334cdfd2236ceaf52b955
           </div>
         </div>
       </div>
@@ -76,6 +43,7 @@
 
   <hr class="mb-5" />
   <!-- Functions - carrinho -->
+  <script src="../../js/functions/reloadPage.js"></script>
   <script src="../../../js/functions/shoopingCart.js"></script>
   <%- include ('partials/footer') %> <%- include ('partials/scripts') %>
 </body>
