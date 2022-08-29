@@ -13,7 +13,7 @@ router.get('/', indexController.index);
 
 router.get('/privacy', indexController.privacy);
 router.get('/termsUse', indexController.termsUse);
-router.get('/exchangePolicy',indexController.exchangePolicy);
+router.get('/exchangePolicy',indexController.exchangePolicy,);
 
 router.get('/contact', indexController.contact);
 router.post('/contactConfirm',validateContact, indexController.contactConfirm);
