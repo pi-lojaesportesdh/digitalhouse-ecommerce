@@ -1,7 +1,3 @@
-/* O QUE DEVE SER FEITO:
-1. TODO: Receber dados e enviar dados para a API.
-2. TODO: Excluir dados que vem da API.
-*/
 let url = "/api";
 let form = document.querySelector(".formCreateProduct");
 
@@ -43,8 +39,8 @@ const addProduct = async () => {
 
       try {
         let response = await fetch(url, settings);
-        alert("Produto criado com sucesso");
         if (response.ok) {
+          Swal.fire("Produto criado com sucesso!");
         }
       } catch (err) {
         console.log("O produto não foi criado no banco de dados");
@@ -65,4 +61,3 @@ const detailProduct = async () => {
 addProduct();
 getProducts();
 // 1. Quando a view estiver pronta reconfigurar essa linha para receber do body e descomentar
-// addProduct()

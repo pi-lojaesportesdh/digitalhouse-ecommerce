@@ -45,7 +45,9 @@ function addToCart(produtos) {
 
   if (hasItemIndex >= 0) {
     cart[hasItemIndex].amount = cart[hasItemIndex].amount + 1;
-    alert("Você adicionou " + produtos.title + " ao carrinho!");
+    Swal.fire({
+      title: `Você adicionou ${produtos.title} ao carrinho!`,
+    });
   } else {
     cart.push({
       ...produtos,
@@ -55,23 +57,3 @@ function addToCart(produtos) {
 
   save(cart);
 }
-
-// function removeItem(id){
-//   const cart = getCart();
-//   const hasItemIndex = cart.findIndex(item=>item.id ===product.id);
-//   if(hasItemIndex>=0){
-
-//     if(cart[hasItemIndex].amount>0){
-//       cart[hasItemIndex].amount=cart[hasItemIndex].amount -1;
-//     }else{
-//       cart.split(1,hasItemIndex);
-//     }
-//     save(cart)
-//   }
-// }
-
-// Ao clicar no mesmo produto 2x ele deve add em uma quantidade
-
-// Ao clicar nos botões + ou -, somar ou subtrair um produto
-
-// Ao clicar na lixeira excluir

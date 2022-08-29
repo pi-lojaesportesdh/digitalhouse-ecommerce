@@ -5,8 +5,6 @@ const { Sequelize } = require("sequelize");
 module.exports = {
   async allProducts(req, res) {
     const listProducts = await Product.findAll(); //Lista todos os produtos
-    // const id = await Product.findByPk();
-    // let resultadoProduto = JSON.stringify(produto)
     return res.render("index", { title: "Lista de produtos", listProducts });
   },
 
@@ -29,24 +27,6 @@ module.exports = {
       cart = "[]";
     }
     cart = JSON.parse(cart);
-
-    // const sumOrder = cart.map((item) => {
-    //   const orderItemPrice = Number(item.price);
-    //   const orderItemAmount = Number(item.amount);
-
-    //   toSumItemsPrice.push(orderItemPrice);
-    //   toSumItemsAmount.push(orderItemAmount);
-    // });
-
-    // for (let i = 0; i < toSumItemsPrice.length; i++) {
-    //   totalSumPrice += toSumItemsPrice[i];
-    // }
-
-    // for (let i = 0; i < toSumItemsAmount.length; i++) {
-    //   totalSumAmount += toSumItemsAmount[i];
-    // }
-
-    // const totalValue = totalSumPrice * totalSumAmount;
 
     const cartFormated = cart.map((item) => ({
       ...item,

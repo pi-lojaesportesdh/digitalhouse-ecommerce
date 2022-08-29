@@ -9,21 +9,29 @@
     </h1>
     <form action="" method="post" class="formPurchaseClosing">
       <% Order.forEach(element=> { %>
-        <div class="d-inline-flex card mb-3" style="width: 18rem">
-          <div class="card-body">
-            <h5 class="card-title">Número do pedido:</h5>
-            <p class="card-text"><strong><%= element.id %></strong></p>
-            <p class="card-text">Valor da compra: <strong>R$ <%= element.total %></strong></p>
-            <div class="d-flex gap-2">
-              <a href="/" class="btn btn-success ">Continuar comprando</a>
-            </div>
+      <div class="d-inline-flex card mb-3" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Número do pedido:</h5>
+          <p class="card-text"><strong><%= element.id %></strong></p>
+          <p class="card-text">
+            Valor da compra: <strong>R$ <%= element.total %></strong>
+          </p>
+          <p class="card-text">
+            Data da compra: <strong><%= element.date %></strong>
+          </p>
+          <p class="card-text">
+            Hora da compra: <strong> <%= element.time %></strong>
+          </p>
+
+          <div class="d-flex gap-2">
+            <a href="/" class="btn btn-success">Continuar comprando</a>
           </div>
         </div>
+      </div>
       <% }) %>
     </form>
   </main>
 
   <hr class="pb-5" />
-  <%- include ('partials/footer') %> 
-  <%- include ('partials/scripts') %>
+  <%- include ('partials/footer') %> <%- include ('partials/scripts') %>
 </body>

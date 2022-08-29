@@ -37,19 +37,4 @@ module.exports = {
       userEmail: req.cookies.email,
     });
   },
-
-  //POST
-  // registConfirm : (req,res) => {
-  //     const errors = validationResult(req, res);
-  //     console.log("Os erros: ",errors);
-
-  //     if (errors.isEmpty()) {
-  //         res.render('registConfirm', { title: 'Cadastrado com Sucesso!' });
-
-  //     }else {
-  //         res.render('registration', {
-  //             errors: errors.mapped(),
-  //             title : 'OPS!'});
-  //     }
-  // },
 };

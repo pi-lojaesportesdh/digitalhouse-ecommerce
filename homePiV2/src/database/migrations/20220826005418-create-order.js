@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       date: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
       },
       time: {
-        type: Sequelize.TIME,
+        type: Sequelize.STRING,
       },
       total: {
         type: Sequelize.FLOAT,

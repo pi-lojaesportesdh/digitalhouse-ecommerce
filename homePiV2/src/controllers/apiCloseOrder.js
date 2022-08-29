@@ -6,6 +6,17 @@ createOrder = async (req, res) => {
   const data = req.body.itemsFilter;
   const user_id = req.body.user_id;
 
+  //date
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear();
+
+  //time
+  let hr = today.getHours();
+  let min = today.getMinutes();
+  let seconds = today.getSeconds();
+
   const dataFormated = data.map((item) => ({
     ...item,
     subTotal: item.price * item.quantity,
@@ -18,6 +29,8 @@ createOrder = async (req, res) => {
   const dataToOrder = {
     user_id,
     total,
+    date: `${dd}/${mm}/${yyyy}`,
+    time: `${hr}:${min}:${seconds}`,
   };
 
   const tempData = [];
