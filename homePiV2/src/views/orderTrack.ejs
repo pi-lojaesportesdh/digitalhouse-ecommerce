@@ -3,28 +3,27 @@
 <body class="min-width: 375px">
   <%- include ('partials/nav') %>
 
-  <main class="container mb-5">
-    <h1 class="text-center text-uppercase" style="color: rgb(240, 167, 11)">
+  <main class="container pb-5">
+    <h1 class="text-uppercase" style="color: rgb(240, 167, 11)">
       Acompanhe o seu pedido
     </h1>
     <form action="" method="post" class="formPurchaseClosing">
       <% Order.forEach(element=> { %>
-      <div class="">
-        <div class="card d-flex flex-row" style="width: 18rem">
+        <div class="d-inline-flex card mb-3" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title">Número do pedido:</h5>
             <p class="card-text"><strong><%= element.id %></strong></p>
-            <p class="card-text">Valor da compra: R$ <%= element.total %></p>
+            <p class="card-text">Valor da compra: <strong>R$ <%= element.total %></strong></p>
             <div class="d-flex gap-2">
-              <a href="/" class="btn btn-success">Continuar comprando</a>
+              <a href="/" class="btn btn-success ">Continuar comprando</a>
             </div>
           </div>
         </div>
-      </div>
       <% }) %>
     </form>
   </main>
 
-  <hr class="mb-5" />
-  <%- include ('partials/footer') %> <%- include ('partials/scripts') %>
+  <hr class="pb-5" />
+  <%- include ('partials/footer') %> 
+  <%- include ('partials/scripts') %>
 </body>
