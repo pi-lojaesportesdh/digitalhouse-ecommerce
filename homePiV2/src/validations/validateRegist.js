@@ -10,7 +10,7 @@ const validateRegist = [
     check('number', 'Insira um número válido').isNumeric().notEmpty(),
     check('complement').isString().notEmpty(),
     check('reference').isString().notEmpty(),
-    check('password', 'Insira uma senha forte').isStrongPassword().notEmpty()
+    check('password', 'Insira uma senha forte').notEmpty()
 ];
 
 module.exports = validateRegist;
