@@ -8,7 +8,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
-                <form action="/login" method="POST" class="col-sm-10 com-md-8 col-lg-6 formLogin" >
+                <form action="/login" method="POST" id='formLogin'class="col-sm-10 com-md-8 col-lg-6 formLogin" >
                     <h1 class="mb-3">Faça seu Login</h1>
                     <hr>
                     <div class="form-floating mb-3">    
@@ -46,7 +46,8 @@
     <footer>
       <%- include ('partials/footer')%>
     </footer>
-    <script src="../../js/api/apiUsersLogin.js"></script>
+    <script src="/js/validations/login.js"></script>
+    <script src="/js/api/apiUsersLogin.js"></script>
     <%- include ('partials/scripts')%>
   </body>
 

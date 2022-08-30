@@ -33,12 +33,12 @@ module.exports = {
     res.render("exchangePolicy", { title: "Politica de troca" });
   },
   contact: (req, res) => {
-    res.render("contact", { title: "Entre em contato" });
+    res.render("contact", { title: "Entre em contato", userEmail: req.cookies.email });
   },
   contactConfirm: (req, res) => {
     const errors = validationResult(req, res);
     if (errors.isEmpty()) {
-      res.render("contactConfirm", { title: "Mensagem enviada!" });
+      res.render("contactConfirm", { title: "Mensagem enviada!", userEmail: req.cookies.email, });
     } else {
       res.render("contact", {
         errors: errors.mapped(),

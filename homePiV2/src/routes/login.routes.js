@@ -16,6 +16,5 @@ router.post("/login", loginController.loginPost);
 // REGISTRO
 router.get("/registration", loginController.registration);
 
-// POST?
 
 module.exports = router;
