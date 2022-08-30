@@ -9,7 +9,7 @@ module.exports = {
   },
 
   createProducts: (req, res) => {
-    res.render("product/createProduct", {
+    res.render("admin/createProduct", {
       title: "Criação de Produtos",
       userEmail: req.cookies.email,
     });

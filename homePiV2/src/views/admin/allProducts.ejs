@@ -1,0 +1,43 @@
+<%- include ('../partials/head') %>
+
+<body class="min-width: 375px">
+  <%- include ('../partials/nav') %>
+  <main class="container mb-5">
+    <div class="row justify-content-center pb-5 mx-auto" id="produtoContainer">
+      <% for(let i=0; i < produtos.length; i++) {%>
+      <div class="me-5 pb-3 col-sm-8 col-md-4 col-lg-2">
+        <div
+          class="card"
+          id="card-product"
+          style="width: 200px; height: 32.813rem"
+        >
+          <img
+            src="/images/produtos/shirt.jpg"
+            class="card-img-top"
+            alt="<%= produtos[i].name %>"
+          />
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= produtos[i].name %></h5>
+            <p class="card-value">
+              <strong>R$: <%= produtos[i].price %> </strong>
+            </p>
+            <p class="card-text"><%= produtos[i].description %>.</p>
+
+            <a
+              class="btn btn-primary"
+              type="submit"
+              href="adminUpdate/<%= produtos[i].id %>"
+              >Editar</a
+            >
+          </div>
+        </div>
+      </div>
+      <% }%>
+    </div>
+  </main>
+
+  <hr class="mb-5" />
+  <!-- Functions - carrinho -->
+  <script src="../../js/functions/reloadPage.js"></script>
+  <%- include ('../partials/footer') %> <%- include ('../partials/scripts') %>
+</body>
