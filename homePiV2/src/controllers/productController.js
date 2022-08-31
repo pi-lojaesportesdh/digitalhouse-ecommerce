@@ -8,6 +8,13 @@ module.exports = {
     return res.render("index", { title: "Lista de produtos", listProducts });
   },
 
+  productsByCategory: (req, res) => {
+    res.render("categoryProduct", {
+      title: "Produtos por categoria",
+      userEmail: req.cookies.email,
+    });
+  },
+
   createProducts: async (req, res) => {
     const categories = await db.Category.findAll();
 

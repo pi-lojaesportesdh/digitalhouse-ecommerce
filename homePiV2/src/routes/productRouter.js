@@ -8,9 +8,11 @@ router.get("/createProduct", productController.createProducts);
 router.post("/createProduct", productController.createProducts);
 router.get("/purchaseClosing", productController.purchaseEnd);
 
+// Order Sucess and Order Track
 router.get("/orderSuccess", productController.orderSuccess);
 router.get("/orderTrack", productController.orderTrack);
 
-// TODO: Rota para a criação de produtos
+// Products by category
+router.get("/productsByCategory", productController.productsByCategory);
 
 module.exports = router;

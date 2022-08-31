@@ -37,4 +37,12 @@ module.exports = {
       userEmail: req.cookies.email,
     });
   },
+
+  profile: (req, res) => {
+    res.render("user/profile", { title: "Perfil do usuário" });
+  },
+
+  changePassword: (req, res) => {
+    res.render("user/changePassword", { title: "Mudar senha" });
+  },
 };

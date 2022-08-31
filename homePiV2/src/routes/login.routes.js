@@ -16,6 +16,8 @@ router.post("/login", loginController.loginPost);
 // REGISTRO
 router.get("/registration", loginController.registration);
 
-// POST?
+// Profile
+router.get("/profile", loginController.profile);
+router.get("/changePassword", loginController.changePassword);
 
 module.exports = router;
