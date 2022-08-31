@@ -58,7 +58,7 @@
                     class="btn btn-outline-danger btn-sm btn-exclude"
                     onclick="removeItem(3)"
                   >
-                    <i class="bi bi-trash3-fill" style="font-size: 0.6rem;"></i>
+                    <i class="bi bi-trash3-fill" style="font-size: 0.6rem"></i>
                   </button>
                 </div>
                 <div class="text-right">
@@ -70,7 +70,7 @@
           </li>
           <li class="list-group-item py-3">
             <div class="text-right">
-              <h4 class="text-dark mb-3">Subtotal: <%= item.subTotal %></h4>
+              <h4 class="text-dark mb-3">Subtotal: R$ <%= item.subTotal %></h4>
             </div>
           </li>
         </ul>
@@ -84,7 +84,11 @@
           </button>
 
           <button type="submit" class="btn btn-trash">
-            <i class="bi bi-trash3-fill mt-3" style="font-size: 1.5rem; color: red;">Excluir produto</i>
+            <i
+              class="bi bi-trash3-fill mt-3"
+              style="font-size: 1.5rem; color: red"
+              >Excluir produto</i
+            >
           </button>
         </div>
       </form>
