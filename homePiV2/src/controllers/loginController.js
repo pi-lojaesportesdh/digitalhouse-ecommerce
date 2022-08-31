@@ -39,10 +39,16 @@ module.exports = {
   },
 
   profile: (req, res) => {
-    res.render("user/profile", { title: "Perfil do usuário" });
+    res.render("user/profile", { 
+      title: "Perfil do usuário",
+      userEmail: req.cookies.email
+    });
   },
 
   changePassword: (req, res) => {
-    res.render("user/changePassword", { title: "Mudar senha" });
+    res.render("user/changePassword", { 
+      title: "Mudar senha",
+      userEmail: req.cookies.email
+    });
   },
 };

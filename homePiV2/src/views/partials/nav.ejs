@@ -1,76 +1,61 @@
-<nav
-  class="navbar navbar-expand-lg navbar-dark bg-black border-bottom shadow-sm mb-3"
->
+<nav class="navbar navbar-expand-lg navbar-dark bg-black border-bottom shadow-sm mb-3">
   <div class="container">
     <a class="navbar-brand" href="/"><strong>DH-Sports</strong></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target=".navbar-collapse"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <% if ( userEmail  ) { %> 
+    <% if ( userEmail ) { %>
       <div class="navbar-collapse collapse"></div>
-        <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+      <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
         <li class="nav-item">
-          <a href="/profile" class="nav-link text-white"
-            ><i class="bi bi-person-circle" style="color: aliceblue"></i> Olá, <%= userEmail %></a
-          >
+          <a href="/profile" class="nav-link text-white"><i class="bi bi-person-circle" style="color: aliceblue"></i>
+            Olá, <%= userEmail %></a>
         </li>
 
-         <li class="nav-item">
+        <li class="nav-item">
           <form method="POST" action="/">
             <input class="btn btn-danger logout" name="logout" type="submit" value="Logout" id="btn-logout"></input>
           </form>
         </li>
 
-                <li class="nav-item">
-          <a href="/shoppingCart" class="nav-link text-white"
-            ><i class="bi bi-cart4" style="color: aliceblue"></i> Carrinho</a
-          >
+        <li class="nav-item">
+          <a href="/shoppingCart" class="nav-link text-white"><i class="bi bi-cart4" style="color: aliceblue"></i>
+            Carrinho</a>
         </li>
 
-         <li class="nav-item">
-          <a href="/product/orderTrack" class="nav-link text-white"
-            ><i class="bi bi-shop" style="color: aliceblue"></i> Histórico de Compras</a
-          >
+        <li class="nav-item">
+          <a href="/product/orderTrack" class="nav-link text-white"><i class="bi bi-shop" style="color: aliceblue"></i>
+            Histórico de Compras</a>
         </li>
-        
-        
-      <% } else { %>
 
-    <div class="navbar-collapse collapse">
-      <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
-         <li class="nav-item">
-          <a href="/" class="nav-link text-white"
-            ><i class="bi bi-house-fill" style="color: aliceblue"></i>
-           Home</a
-          >
-        </li>
-        
-        <li class="nav-item">
-          <a href="login" class="nav-link text-white"
-            ><i class="bi bi-box-arrow-in-right" style="color: aliceblue"></i>
-            Login</a
-          >
-        </li>
-        <li class="nav-item"> 
-          <a href="contact" class="nav-link text-white"
-            ><i class="bi bi-person-rolodex" style="color: aliceblue"></i>
-            Contato</a
-          >
-        </li>
-        <li class="nav-item">
-          <a href="shoppingCart" class="nav-link text-white"
-            ><i class="bi bi-cart4" style="color: aliceblue"></i> Carrinho</a
-          >
-        </li>
-      </ul>
-    </div>
-    <% } %>
+
+        <% } else { %>
+
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+              <li class="nav-item">
+                <a href="/" class="nav-link text-white"><i class="bi bi-house-fill" style="color: aliceblue"></i>
+                  Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="login" class="nav-link text-white"><i class="bi bi-box-arrow-in-right"
+                    style="color: aliceblue"></i>
+                  Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="contact" class="nav-link text-white"><i class="bi bi-person-rolodex"
+                    style="color: aliceblue"></i>
+                  Contato</a>
+              </li>
+              <li class="nav-item">
+                <a href="shoppingCart" class="nav-link text-white"><i class="bi bi-cart4" style="color: aliceblue"></i>
+                  Carrinho</a>
+              </li>
+            </ul>
+          </div>
+          <% } %>
   </div>
 </nav>
 

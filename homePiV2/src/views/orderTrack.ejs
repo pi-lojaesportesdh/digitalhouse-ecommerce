@@ -1,37 +1,51 @@
 <%- include ('partials/head') %>
 
-<body class="min-width: 375px">
-  <%- include ('partials/nav') %>
+  <body class="min-width: 375px">
+    <%- include ('partials/nav') %>
 
-  <main class="container pb-5">
-    <h1 class="text-uppercase" style="color: rgb(240, 167, 11)">
-      Acompanhe o seu pedido
-    </h1>
-    <form action="" method="post" class="formPurchaseClosing">
-      <% Order.forEach(element=> { %>
-      <div class="d-inline-flex card mb-3" style="width: 18rem">
-        <div class="card-body">
-          <h5 class="card-title">Número do pedido:</h5>
-          <p class="card-text"><strong><%= element.id %></strong></p>
-          <p class="card-text">
-            Valor da compra: <strong>R$ <%= element.total %></strong>
-          </p>
-          <p class="card-text">
-            Data da compra: <strong><%= element.date %></strong>
-          </p>
-          <p class="card-text">
-            Hora da compra: <strong> <%= element.time %></strong>
-          </p>
+      <main class="container pb-5">
+        <h1 class="text-uppercase text-center" style="color: rgb(240, 167, 11)">
+          Acompanhe o seu pedido
+        </h1>
+        <form action="" method="post" class="formPurchaseClosing">
+          <% Order.forEach(element=> { %>
+            <div class="d-inline-flex card mb-3 " style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">Número do pedido:</h5>
+                <p class="card-text"><strong>
+                    <%= element.id %>
+                  </strong></p>
+                <p class="card-text">
+                  Valor da compra: <strong>R$ <%= element.total %></strong>
+                </p>
+                <p class="card-text">
+                  Data da compra: <strong>
+                    <%= element.date %>
+                  </strong>
+                </p>
+                <p class="card-text">
+                  Hora da compra: <strong>
+                    <%= element.time %>
+                  </strong>
+                </p>
 
-          <div class="d-flex gap-2">
-            <a href="/" class="btn btn-success">Continuar comprando</a>
-          </div>
-        </div>
-      </div>
-      <% }) %>
-    </form>
-  </main>
+                <div class="d-flex gap-2 custom-popover-demo">
+                  <button type="button" class="btn btn-dark" 
+                    data-bs-container="body" 
+                    data-bs-toggle="popover" 
+                    data-bs-placement="bottom" 
+                    data-bs-content="Itens, preços e muito mais">
+                      O que tem no seu pedido?
+                      Clique aqui!
+                  </button>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </form>
+      </main>
 
-  <hr class="pb-5" />
-  <%- include ('partials/footer') %> <%- include ('partials/scripts') %>
-</body>
+      <hr class="pb-5" />
+      <%- include ('partials/footer') %>
+        <%- include ('partials/scripts') %>
+  </body>

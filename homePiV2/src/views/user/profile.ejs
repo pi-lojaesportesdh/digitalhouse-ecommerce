@@ -1,6 +1,30 @@
-<h1>Perfil de usuário</h1>
-<h1>Endereço:</h1>
+<%- include ('../partials/head')%>
 
-<form method="GET" action="/changePassword">
-  <button type="submit">Alterar senha</button>
-</form>
+  <body style="min-width: 372px;">
+      <%- include ('../partials/nav')%>
+
+    <main class="container ">
+        <form method="GET" action="/changePassword">
+          <div class="card mx-auto" style="width: 18rem;">
+            <div class="text-center">
+              <h3>Perfil do usuário</h3>
+            </div>
+            <div class="text-center">
+              <i class="bi bi-person-circle" style="font-size: 2em"></i>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Nome:</h5>
+              <h5 class="card-title">Email:</h5>
+              <h5 class="card-title">Endereço:</h5>
+            </div>
+            <button class="btn btn-primary btn-md mx-auto mb-2" type="submit">Alterar dados</button>
+          </div>
+        </form>
+    </main>
+
+
+      <%- include ('../partials/footer')%>
+    <%- include ('../partials/scripts')%>
+  </body>
+
+  </html>

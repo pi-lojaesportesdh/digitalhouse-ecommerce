@@ -1,45 +1,43 @@
 <%- include ('../partials/head') %>
 
-<body class="min-width: 372px">
-  <%- include ('../partials/nav') %>
-  <div class="container">
-    <div class="row justify-content-center">
-      <h1 class="row justify-content-center text-uppercase">
-        Categorias cadastradas
-      </h1>
-      <form
-        class="row justify-content-center g-3 formCreateCategory"
-        novalidate
-      >
-        <div class="col-md-4">
-          <table class="table table-dark">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Categorias</th>
-                <th scope="col">Editar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% categories.forEach(element => { %>
-              <tr>
-                <th scope="row"><%= element.id %></th>
-                <td><%= element.name %></td>
-                <td>
-                  <a
-                    class="btn btn-primary btn-sm"
-                    href="/editCategory/<%=element.id%>"
-                    >Editar</a
-                  >
-                </td>
-              </tr>
-              <% }) %>
-            </tbody>
-          </table>
+  <body class="min-width: 372px">
+    <%- include ('../partials/nav') %>
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1 class="row justify-content-center text-uppercase">
+            Categorias cadastradas
+          </h1>
+          <form class="row justify-content-center g-3 formCreateCategory" novalidate>
+            <div class="col-md-4">
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Categorias</th>
+                    <th scope="col">Editar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% categories.forEach(element=> { %>
+                    <tr>
+                      <th scope="row">
+                        <%= element.id %>
+                      </th>
+                      <td>
+                        <%= element.name %>
+                      </td>
+                      <td>
+                        <a class="btn btn-primary btn-sm" href="/editCategory/<%=element.id%>">Editar</a>
+                      </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
-  </div>
-  <script src="../../../js/api/apiCreateCategory.js"></script>
-  <%- include ('../partials/footer') %> <%- include ('../partials/scripts') %>
-</body>
+      </div>
+      <script src="../../../js/api/apiCreateCategory.js"></script>
+      <%- include ('../partials/footer') %>
+        <%- include ('../partials/scripts') %>
+  </body>
