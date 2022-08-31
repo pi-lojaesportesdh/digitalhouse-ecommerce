@@ -5,6 +5,7 @@ const categoriesController = require("../controllers/categoriesController");
 
 router.get("/category", categoriesController.categories);
 router.post("/category", categoriesController.createCategories);
+router.get("/allCategories", categoriesController.allCategories);
 
 router.get("/admin", adminController.adminLog);
 router.get("/adminProduct", adminController.adminProducts);
