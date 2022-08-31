@@ -22,11 +22,15 @@ const addProduct = async () => {
       let valueProduct = document.getElementsByName("valueProduct")[0].value;
       let imgProduct = document.getElementsByName("imgProduct")[0].value;
 
+      let category = document.getElementById("category");
+      let categoryValue = category.value;
+
       const dataForm = {
         name: nameProduct,
         description: descProduct,
         price: valueProduct,
         imgProduct: imgProduct,
+        category_id: categoryValue,
       };
 
       const settings = {

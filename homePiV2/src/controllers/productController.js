@@ -8,10 +8,13 @@ module.exports = {
     return res.render("index", { title: "Lista de produtos", listProducts });
   },
 
-  createProducts: (req, res) => {
+  createProducts: async (req, res) => {
+    const categories = await db.Category.findAll();
+
     res.render("admin/createProduct", {
       title: "Criação de Produtos",
       userEmail: req.cookies.email,
+      categories,
     });
   },
 

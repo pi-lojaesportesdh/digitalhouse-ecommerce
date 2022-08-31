@@ -14,23 +14,26 @@ module.exports = {
   adminUpdate: async (req, res) => {
     const { id } = req.params;
     const productById = await db.Product.findByPk(id);
+    const categories = await db.Category.findAll();
 
     res.render("admin/adminProduct", {
       title: "Alterar produto",
       userEmail: req.cookies.email,
       productById,
+      categories,
     });
   },
 
   adminUpdatePost: async (req, res) => {
     const { id } = req.params;
-    const { name, price, description } = req.body;
+    const { name, price, description, category_id } = req.body;
 
     const updateProduct = await db.Product.update(
       {
         name,
         description,
         price,
+        category_id,
       },
       { where: { id: id } }
     );

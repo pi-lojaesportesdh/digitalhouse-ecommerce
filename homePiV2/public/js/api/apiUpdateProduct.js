@@ -8,12 +8,15 @@ formUpdateProduct &&
     let descProduct = document.getElementsByName("descProduct")[0].value;
     let valueProduct = document.getElementsByName("valueProduct")[0].value;
     let idProduct = document.getElementsByName("idToUrl")[0].value;
+    let category = document.getElementById("category");
+    let categoryValue = category.value;
     const urlUpdate = `/adminUpdate/${idProduct}`;
 
     const dataForm = {
       name: nameProduct,
       description: descProduct,
       price: valueProduct,
+      category_id: categoryValue,
     };
 
     const settings = {

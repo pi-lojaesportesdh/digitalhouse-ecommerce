@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       Product.associate = (models) => {
         Product.belongsTo(models.OrderItem, { foreignKey: "product_id" });
       };
+
+      Product.associate = (models) => {
+        Product.hasOne(models.Category, { foreignKey: "id" });
+      };
     }
   }
   Product.init(
@@ -19,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       price: DataTypes.FLOAT,
       imgProduct: DataTypes.STRING,
+      category_id: DataTypes.INTEGER,
     },
     {
       sequelize,
