@@ -3,6 +3,9 @@
 <body class="min-width: 375px">
   <%- include ('../partials/nav') %>
   <main class="container mb-5">
+    <div class="d-flex justify-content-center mb-2">
+      <a href="/product/createProduct" class="btn btn-primary">Criar Produto</a>
+    </div>
     <div class="row justify-content-center pb-5 mx-auto" id="produtoContainer">
       <% for(let i=0; i < produtos.length; i++) {%>
       <div class="me-5 pb-3 col-sm-8 col-md-4 col-lg-2">

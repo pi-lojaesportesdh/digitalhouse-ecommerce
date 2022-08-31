@@ -55,10 +55,27 @@ module.exports = {
     });
   },
 
-  changePassword: (req, res) => {
+  changePassword: async (req, res) => {
     res.render("user/changePassword", {
       title: "Mudar senha",
       userEmail: req.cookies.email,
     });
+  },
+
+  changePasswordPost: async (req, res) => {
+    const idUser = req.cookies.idUser;
+    const { password } = req.body;
+
+    console.log(password);
+
+    const updateUserPass = await db.Users.update(
+      { password },
+      { where: { id: idUser } }
+    );
+
+    if (password) {
+      res.clearCookie("idUser");
+      res.clearCookie("email");
+    }
   },
 };
