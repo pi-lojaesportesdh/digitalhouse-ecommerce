@@ -41,10 +41,11 @@ const addProduct = async () => {
         body: JSON.stringify(dataForm),
       };
 
+      Swal.fire("Produto criado com sucesso");
       try {
         let response = await fetch(url, settings);
         if (response.ok) {
-          Swal.fire("Produto criado com sucesso!");
+          window.location.href = "/allProducts";
         }
       } catch (err) {
         console.log("O produto não foi criado no banco de dados");

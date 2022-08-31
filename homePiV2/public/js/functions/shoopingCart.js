@@ -42,12 +42,14 @@ function addToCart(produtos) {
   const cart = getCart();
 
   const hasItemIndex = cart.findIndex((item) => item.id === produtos.id);
+  Swal.fire({
+    title: `Você adicionou ${produtos.title} ao carrinho!`,
+    timer: 1000,
+    timerProgressBar: true,
+  });
 
   if (hasItemIndex >= 0) {
     cart[hasItemIndex].amount = cart[hasItemIndex].amount + 1;
-    Swal.fire({
-      title: `Você adicionou ${produtos.title} ao carrinho!`,
-    });
   } else {
     cart.push({
       ...produtos,

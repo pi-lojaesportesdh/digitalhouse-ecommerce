@@ -80,16 +80,16 @@ formPurchaseClosing &&
       body: JSON.stringify({ user_id, itemsFilter }),
     };
 
+    Swal.fire({
+      title: "Compra finalizada com sucesso!",
+      icon: "success",
+      confirmButtonText:
+        '<a href="/product/orderTrack" class="text-decoration-none text-light"><i class="fa fa-thumbs-up"></i> Acompanhar pedido</a>',
+    });
+
     try {
-      Swal.fire({
-        title: "Compra finalizada com sucesso!",
-        icon: "success",
-        confirmButtonText:
-          '<a href="/product/orderTrack" class="text-decoration-none text-light"><i class="fa fa-thumbs-up"></i> Acompanhar pedido</a>',
-      });
       let response = fetch(urlPurchaseClosing, settings);
       deleteCookie("@homepiv2:cart");
-
       //window.location.href = "http://localhost:3000/product/orderSuccess";
     } catch (err) {
       console.log(err);
