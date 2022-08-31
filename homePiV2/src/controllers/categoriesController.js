@@ -23,4 +23,11 @@ allCategories = async (req, res) => {
     })
 };
 
-module.exports = { categories, createCategories, allCategories };
+editCategories = (req, res) => {
+  res.render("admin/editCategory", {
+    title: "Edição de categorias",
+    userEmail: req.cookies.email
+  })
+};
+
+module.exports = { categories, createCategories, allCategories, editCategories };

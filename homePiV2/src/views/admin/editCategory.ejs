@@ -1,0 +1,33 @@
+<%- include ('../partials/head') %>
+
+  <body class="min-width: 372px">
+    <%- include ('../partials/nav') %>
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1 class="row justify-content-center text-uppercase">
+            Edite a categoria
+          </h1>
+          <form class="row justify-content-center g-3 formCreateCategory" novalidate>
+            <div class="col-md-4">
+              <label for="validationCustom01" class="form-label">Atualize o nome da categoria:</label>
+              <input type="text" name="nameCategory" class="form-control" id="validationCustom01"
+                placeholder="Digite o nome da categoria" required />
+              <div class="invalid-feedback">
+                Não esqueça de preencher esse campo!
+              </div>
+              <div class="row justify-content-center gap-3 pt-5">
+                <button class="btn btn-lg btn-primary" style="width:45%" type="submit">
+                  Atualizar
+                </button>
+                <button class="btn btn-danger btn-lg" style="width:45%" type="submit">
+                  Excluir
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script src="../../../js/api/apiCreateCategory.js"></script>
+      <%- include ('../partials/footer') %>
+        <%- include ('../partials/scripts') %>
+  </body>
