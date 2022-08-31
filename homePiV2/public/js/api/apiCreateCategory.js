@@ -19,7 +19,11 @@ formCreateCategory &&
       body: JSON.stringify(dataForm),
     };
 
-    Swal.fire("Categoria criada com sucesso!");
+    Swal.fire({
+      title: "Categoria criada com sucesso!",
+      confirmButtonText:
+        '<a href="/allCategories" class="text-decoration-none text-light"><i class="fa fa-thumbs-up"></i> Ok</a>',
+    });
     try {
       let response = await fetch(urlCategory, settings);
       if (response.ok) {

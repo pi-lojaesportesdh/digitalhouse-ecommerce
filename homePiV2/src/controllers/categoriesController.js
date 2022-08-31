@@ -46,10 +46,17 @@ editCategoriesPost = async (req, res) => {
   );
 };
 
+deleteCategories = async (req, res) => {
+  const { id } = req.params;
+
+  const deleteCategorie = await db.Category.destroy({ where: { id } });
+};
+
 module.exports = {
   categories,
   createCategories,
   allCategories,
   editCategories,
   editCategoriesPost,
+  deleteCategories,
 };
