@@ -13,4 +13,14 @@ createCategories = async (req, res) => {
   const createCategory = await db.Category.create(data);
 };
 
-module.exports = { categories, createCategories };
+allCategories = async (req, res) => {
+  const categories = await db.Category.findAll();
+
+    res.render("admin/allCategories", {
+      categories,
+      title: "Categorias cadastradas",
+      userEmail: req.cookies.email
+    })
+};
+
+module.exports = { categories, createCategories, allCategories };
