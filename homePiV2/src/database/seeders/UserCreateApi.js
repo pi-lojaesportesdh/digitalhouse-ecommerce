@@ -1,5 +1,5 @@
-const db = require('../models');
-const bcrypt = require('bcrypt')
+const db = require("../models");
+const bcrypt = require("bcrypt");
 // Responsável por realizar a criação de usuários dentro do futuro banco de dados
 // (Modelagem do banco de dados de usuários precisa ser feita para a criação de usuários ser possível)
 // Verificando a possibilidade de realizar a criação de usuários através de uma API.
@@ -8,56 +8,54 @@ listar = async (req, res) => {
   //Buscar todos os usuários do banco
   try {
     const users = await db.Users.findAll();
-    res.status(200).json(users)
+    res.status(200).json(users);
   } catch (err) {
-    console.error('Erro ao tentar executar consulta:', { err });
-    res.status(500).json({ error: 'Houve um erro ao acessar os usuários' });
+    console.error("Erro ao tentar executar consulta:", { err });
+    res.status(500).json({ error: "Houve um erro ao acessar os usuários" });
   }
-}
+};
 
 // Detalhar um usuário específico do banco de dados
 detalhar = async (req, res) => {
-    try {
-      const {id} = req.params;
-      const userById = await db.Users.findByPk(id);
-      res.status(200).json(userById)
-    }
-    catch (err) {
-      res.status(500).json({ error: 'Houve um erro ao detalhar o usuário' });
-    }
+  try {
+    const { id } = req.params;
+    const userById = await db.Users.findByPk(id);
+    res.status(200).json(userById);
+  } catch (err) {
+    res.status(500).json({ error: "Houve um erro ao detalhar o usuário" });
   }
-  
+};
 
-  
 //   // Criar um usuário no banco de dados
-  criar = async (req, res) => {
-    let {name, email, password} = req.body
+criar = async (req, res) => {
+  let { name, email, password, adresse } = req.body;
 
-    try {
-      const createUser = await db.Users.create({name, email, password}) 
-      res.status(200).json(createUser)
-    }catch (err) {
-      res.status(500).json({error: 'Houve um erro ao criar o usuário'})
-    }
+  try {
+    const createUser = await db.Users.create({
+      name,
+      email,
+      password,
+      adresse,
+    });
+    res.status(200).json(createUser);
+  } catch (err) {
+    res.status(500).json({ error: "Houve um erro ao criar o usuário" });
   }
-  
-  
+};
+
 //   // Excluir um usuário do banco de dados
-  excluir = async (req, res) => {
-    try {
-      const {id} = req.params;
-      const deleteUser = await db.Users.destroy({
-        where: {id}
-      })
-      res.json(deleteUser)
-    }
-    catch(err) {
-      res.status(500).json({error: 'Houve um erro ao excluir o usuário'});
-    }
+excluir = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteUser = await db.Users.destroy({
+      where: { id },
+    });
+    res.json(deleteUser);
+  } catch (err) {
+    res.status(500).json({ error: "Houve um erro ao excluir o usuário" });
   }
-  
-  
-  
+};
+
 //   // Alterar todos os campos de um livro
 //   alterar = async (req, res) => {
 //     const {id} = req.params;
@@ -72,7 +70,4 @@ detalhar = async (req, res) => {
 //     }
 //   }
 
-
-
-
-module.exports = {listar, detalhar, criar, excluir};
+module.exports = { listar, detalhar, criar, excluir };

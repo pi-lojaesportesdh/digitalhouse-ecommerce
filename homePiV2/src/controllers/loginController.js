@@ -38,17 +38,27 @@ module.exports = {
     });
   },
 
-  profile: (req, res) => {
-    res.render("user/profile", { 
+  profile: async (req, res) => {
+    const idUser = req.cookies.idUser;
+    const findUser = await db.Users.findOne({ where: { id: idUser } });
+
+    const { name, email, adresse } = findUser.dataValues;
+
+    console.log(name, email, adresse);
+
+    res.render("user/profile", {
       title: "Perfil do usuário",
-      userEmail: req.cookies.email
+      userEmail: req.cookies.email,
+      name,
+      email,
+      adresse,
     });
   },
 
   changePassword: (req, res) => {
-    res.render("user/changePassword", { 
+    res.render("user/changePassword", {
       title: "Mudar senha",
-      userEmail: req.cookies.email
+      userEmail: req.cookies.email,
     });
   },
 };

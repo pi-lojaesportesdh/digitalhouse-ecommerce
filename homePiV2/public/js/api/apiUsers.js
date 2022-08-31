@@ -7,6 +7,7 @@ const addUser = async () => {
       let name = document.getElementsByName("nomeCompleto")[0].value;
       let password = document.getElementsByName("password")[0].value;
       let email = document.getElementsByName("email")[0].value;
+      let adresse = document.getElementsByName("inputAdress")[0].value;
 
       e.preventDefault();
 
@@ -14,6 +15,7 @@ const addUser = async () => {
         name,
         password,
         email,
+        adresse,
       };
 
       const settings = {
@@ -24,6 +26,12 @@ const addUser = async () => {
         body: JSON.stringify(dataForm),
       };
 
+      Swal.fire({
+        title: "Registrado com sucesso",
+        icon: "success",
+        confirmButtonText:
+          '<a href="/login" class="text-decoration-none text-light"><i class="fa fa-thumbs-up"></i> Fazer Login</a>',
+      });
       try {
         let response = await fetch(url, settings);
         if (response.ok) {
