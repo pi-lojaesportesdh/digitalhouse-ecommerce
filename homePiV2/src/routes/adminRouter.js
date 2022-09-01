@@ -17,8 +17,11 @@ router.post("/editCategory/:id", categoriesController.editCategoriesPost);
 //delete
 router.delete("/editCategory/:id", categoriesController.deleteCategories);
 
-//Product
+//login admin
 router.get("/admin", adminController.adminLog);
+router.post("/admin", adminController.adminLoginPost);
+
+//Product
 router.get("/adminProduct", adminController.adminProducts);
 router.get("/adminUpdate/:id", adminController.adminUpdate);
 router.post(

@@ -4,6 +4,7 @@ categories = (req, res) => {
   res.render("admin/createCategory", {
     title: "Criar categoria",
     userEmail: req.cookies.email,
+    emailAdmin: req.cookies.emailAdmin,
   });
 };
 
@@ -20,6 +21,7 @@ allCategories = async (req, res) => {
     categories,
     title: "Categorias cadastradas",
     userEmail: req.cookies.email,
+    emailAdmin: req.cookies.emailAdmin,
   });
 };
 
@@ -31,6 +33,7 @@ editCategories = async (req, res) => {
     title: "Edição de categorias",
     userEmail: req.cookies.email,
     categoryById,
+    emailAdmin: req.cookies.emailAdmin,
   });
 };
 

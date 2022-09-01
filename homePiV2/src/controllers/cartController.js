@@ -24,6 +24,7 @@ module.exports = {
       produtos,
       total,
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 };

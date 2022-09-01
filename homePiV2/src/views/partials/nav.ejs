@@ -5,8 +5,33 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <% if ( userEmail ) { %>
-      <div class="navbar-collapse collapse"></div>
+    <% if (emailAdmin) { %>
+           <div class="navbar-collapse collapse"></div>
+      <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link text-white"><i class="bi bi-person-circle" style="color: aliceblue"></i>
+            Olá, <%= emailAdmin %></a>
+        </li>
+
+        <li class="nav-item">
+          <form method="POST" action="/">
+            <input class="btn btn-danger logout" name="logout" type="submit" value="Logout" id="btn-logout"></input>
+          </form>
+        </li>
+
+        <li class="nav-item">
+          <a href="/allProducts" class="nav-link text-white"><i class="bi bi-cart4" style="color: aliceblue"></i>
+            Editar Produtos</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/allCategories" class="nav-link text-white"><i class="bi bi-shop" style="color: aliceblue"></i>
+            Editar Categoria</a>
+        </li>
+
+
+    <% } else if (userEmail) { %>
+           <div class="navbar-collapse collapse"></div>
       <ul class="navbar-nav d-flex justify-content-end flex-grow-1">
         <li class="nav-item">
           <a href="/profile" class="nav-link text-white"><i class="bi bi-person-circle" style="color: aliceblue"></i>
@@ -56,15 +81,7 @@
                   Carrinho</a>
               </li>
 
-              <li class="nav-item">
-                <a href="/allProducts" class="nav-link text-white"><i class="bi bi-pencil-fill style="color: aliceblue"></i>
-                  Editar Produtos</a>
-              </li>
-
-               <li class="nav-item">
-                <a href="/allCategories" class="nav-link text-white"><i class="bi bi-pencil-square style="color: aliceblue"></i>
-                  Editar Categoria</a>
-              </li>
+             
             </ul>
           </div>
           <% } %>

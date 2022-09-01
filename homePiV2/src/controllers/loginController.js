@@ -7,6 +7,7 @@ module.exports = {
     return res.render("login", {
       title: "Login",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 
@@ -38,6 +39,7 @@ module.exports = {
     res.render("registration", {
       title: "Cadastro",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 
@@ -52,6 +54,7 @@ module.exports = {
     res.render("user/profile", {
       title: "Perfil do usuário",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
       name,
       email,
       adresse,
@@ -62,6 +65,7 @@ module.exports = {
     res.render("user/changePassword", {
       title: "Mudar senha",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 

@@ -5,19 +5,24 @@
 
   <div class="container">
     <di v class="row justify-content-center">
-      <form action="" method="" class="col-sm-10 com-md-8 col-lg-6">
+      <form
+        action=""
+        method=""
+        class="col-sm-10 com-md-8 col-lg-6 formAdminLogin"
+      >
         <h1 class="mb-3">Olá Admin, efetue seu login!</h1>
         <hr />
         <div class="form-floating mb-3">
           <input
             type="text"
             class="form-control"
-            id="nameImput"
+            id="emailAdmin"
             placeholder=" "
+            name="adminEmail"
           />
-          <label for="floatingInput">Nome:</label>
+          <label for="floatingInput">Email:</label>
           <div class="form-text" style="color: red">
-            OBS: Nome conforme cadastrado no sistema.
+            OBS: Email conforme cadastrado no sistema.
           </div>
         </div>
         <div class="form-floating">
@@ -26,6 +31,7 @@
             class="form-control"
             id="passImput"
             placeholder=" "
+            name="adminPass"
           />
           <label for="floatingPassword">Senha:</label>
           <div class="form-text" style="color: red">
@@ -33,15 +39,11 @@
           </div>
         </div>
         <div class="mb-3">
-          <a
-            class="btn btn-outline-danger"
-            type="submit"
-            href="product/createProduct"
-            >Entrar</a
-          >
+          <button class="btn btn-outline-danger" type="submit">Entrar</button>
         </div>
       </form>
     </di>
   </div>
+  <script src="../../js/api/admin/adminLogin.js"></script>
   <%- include ('partials/footer') %> <%- include ('partials/scripts') %>
 </body>

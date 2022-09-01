@@ -2,12 +2,39 @@ const db = require("../database/models");
 
 module.exports = {
   adminLog: (req, res) => {
-    res.render("admin", { title: "Olá admin", userEmail: req.cookies.email });
+    res.render("admin", {
+      title: "Olá admin",
+      userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
+    });
   },
+
+  adminLoginPost: async (req, res) => {
+    let { adminEmail, password } = req.body;
+    const userAdmin = await db.Admin.findOne({ where: { adminEmail } });
+
+    if (!userAdmin) {
+      return res
+        .status(400)
+        .json({ message: "Email ou senha não correspondem!" });
+    }
+
+    if (userAdmin.password !== password) {
+      return res
+        .status(400)
+        .json({ message: "Email ou senha não correspondem!" });
+    }
+
+    res.cookie("emailAdmin", userAdmin.adminEmail);
+    res.cookie("idAdmin", userAdmin.id);
+    res.redirect("/");
+  },
+
   adminProducts: async (req, res) => {
     res.render("product/adminProduct", {
       title: "Olá Admin, você está logado!",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 
@@ -19,6 +46,7 @@ module.exports = {
     res.render("admin/adminProduct", {
       title: "Alterar produto",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
       productById,
       categories,
     });
@@ -55,6 +83,7 @@ module.exports = {
     res.render("admin/allProducts", {
       title: "Produtos",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
       produtos,
     });
   },

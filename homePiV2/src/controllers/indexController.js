@@ -9,6 +9,7 @@ module.exports = {
       produtos,
       title: "DH_Sports",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 
@@ -17,6 +18,8 @@ module.exports = {
 
     if (logout) {
       res.clearCookie("email");
+      res.clearCookie("emailAdmin");
+      res.clearCookie("idAdmin");
       res.clearCookie("idUser");
       res.clearCookie("@homepiv2:cart");
       res.redirect("/");

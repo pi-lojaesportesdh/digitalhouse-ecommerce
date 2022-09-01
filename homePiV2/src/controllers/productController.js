@@ -12,6 +12,7 @@ module.exports = {
     res.render("categoryProduct", {
       title: "Produtos por categoria",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
     });
   },
 
@@ -21,6 +22,7 @@ module.exports = {
     res.render("admin/createProduct", {
       title: "Criação de Produtos",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
       categories,
     });
   },
@@ -57,6 +59,7 @@ module.exports = {
     res.render("purchaseClosing", {
       title: "Finalização da compra",
       userEmail: req.cookies.email,
+      emailAdmin: req.cookies.emailAdmin,
       cart: cartFormated,
       total,
       sumItems,
@@ -108,6 +111,7 @@ module.exports = {
         title: "Finalização da compra",
         userEmail: req.cookies.email,
         Order,
+        emailAdmin: req.cookies.emailAdmin,
       });
     } catch (err) {
       console.log(err);
