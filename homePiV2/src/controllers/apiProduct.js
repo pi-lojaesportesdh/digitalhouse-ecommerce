@@ -24,9 +24,19 @@ detalhar = async (req, res) => {
 
 // Criar um produto no banco de dados
 criar = async (req, res) => {
+  const name = req.body.name;
+  const description = req.body.description;
+  const price = req.body.price;
+  const category_id = req.body.category_id;
+  const imgProduct = req.file.filename;
   try {
-    console.log(req.body);
-    const createProduct = await db.Product.create(req.body);
+    const createProduct = await db.Product.create({
+      name,
+      description,
+      price,
+      category_id,
+      imgProduct,
+    });
     res.status(201).json(createProduct);
   } catch (err) {
     res.status(500).json({ error: `Houve um erro ao criar o produto ${err}` });

@@ -20,25 +20,29 @@ const addProduct = async () => {
       let nameProduct = document.getElementsByName("nameProduct")[0].value;
       let descProduct = document.getElementsByName("descProduct")[0].value;
       let valueProduct = document.getElementsByName("valueProduct")[0].value;
-      let imgProduct = document.getElementsByName("imgProduct")[0].value;
+      let imgProduct = document.querySelector('input[type="file"]');
 
       let category = document.getElementById("category");
       let categoryValue = category.value;
 
-      const dataForm = {
-        name: nameProduct,
-        description: descProduct,
-        price: valueProduct,
-        imgProduct: imgProduct,
-        category_id: categoryValue,
-      };
+      const formData = new FormData();
+      formData.append("name", nameProduct);
+      formData.append("description", descProduct);
+      formData.append("price", valueProduct);
+      formData.append("category_id", categoryValue);
+      formData.append("imgProduct", imgProduct.files[0]);
+
+      // const dataForm = {
+      //   name: nameProduct,
+      //   description: descProduct,
+      //   price: valueProduct,
+      //   imgProduct: imgProduct.files[0],
+      //   category_id: categoryValue,
+      // };
 
       const settings = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(dataForm),
+        body: formData,
       };
 
       Swal.fire("Produto criado com sucesso");
