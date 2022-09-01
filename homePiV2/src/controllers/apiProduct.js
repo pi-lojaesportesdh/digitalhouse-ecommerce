@@ -28,7 +28,7 @@ criar = async (req, res) => {
   const description = req.body.description;
   const price = req.body.price;
   const category_id = req.body.category_id;
-  const imgProduct = req.file.filename;
+  const imgProduct = req.file?.filename;
   try {
     const createProduct = await db.Product.create({
       name,
