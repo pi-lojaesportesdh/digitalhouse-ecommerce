@@ -28,6 +28,7 @@ module.exports = {
     const { id } = req.params;
     const { name, price, description, category_id } = req.body;
     const imgProduct = req.file.filename;
+
     const updateProduct = await db.Product.update(
       {
         name,

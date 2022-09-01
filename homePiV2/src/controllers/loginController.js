@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const brcrypt = require("bcrypt");
 
 module.exports = {
   // GET
@@ -13,13 +14,15 @@ module.exports = {
     let { email, password } = req.body;
     const user = await db.Users.findOne({ where: { email } });
 
+    const comparePass = brcrypt.compareSync(password, user.password);
+
     if (!user) {
       return res
         .status(400)
         .json({ message: "Email ou senha não correspondem!" });
     }
 
-    if (user.password !== password) {
+    if (!comparePass) {
       return res
         .status(400)
         .json({ message: "Email ou senha não correspondem!" });

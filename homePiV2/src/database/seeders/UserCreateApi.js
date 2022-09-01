@@ -29,12 +29,13 @@ detalhar = async (req, res) => {
 //   // Criar um usuário no banco de dados
 criar = async (req, res) => {
   let { name, email, password, adresse } = req.body;
+  const hash = bcrypt.hashSync(password, 12);
 
   try {
     const createUser = await db.Users.create({
       name,
       email,
-      password,
+      password: hash,
       adresse,
     });
     res.status(200).json(createUser);
