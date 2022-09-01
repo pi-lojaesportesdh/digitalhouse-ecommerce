@@ -86,6 +86,24 @@ module.exports = {
         },
       });
 
+      for (let order of Order) {
+        const OrderItem = await db.OrderItem.findAll({
+          where: {
+            order_id: order.id,
+          },
+        });
+        for (let orderItem of OrderItem) {
+          const product = await db.Product.findOne({
+            where: { id: orderItem.product_id },
+          });
+
+          orderItem.product = product;
+        }
+        order.items = OrderItem;
+      }
+
+      console.log(Order[0].items[0]?.product);
+
       res.render("orderTrack", {
         title: "Finalização da compra",
         userEmail: req.cookies.email,
