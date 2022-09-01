@@ -8,23 +8,31 @@ formUpdateProduct &&
     let descProduct = document.getElementsByName("descProduct")[0].value;
     let valueProduct = document.getElementsByName("valueProduct")[0].value;
     let idProduct = document.getElementsByName("idToUrl")[0].value;
+    let imgEditProduct = document.querySelector('input[type="file"]');
+
     let category = document.getElementById("category");
     let categoryValue = category.value;
     const urlUpdate = `/adminUpdate/${idProduct}`;
 
-    const dataForm = {
-      name: nameProduct,
-      description: descProduct,
-      price: valueProduct,
-      category_id: categoryValue,
-    };
+    const formDataEditProduct = new FormData();
+
+    formDataEditProduct.append("name", nameProduct);
+    formDataEditProduct.append("description", descProduct);
+    formDataEditProduct.append("price", valueProduct);
+    formDataEditProduct.append("category_id", categoryValue);
+    formDataEditProduct.append("imgProduct", imgEditProduct.files[0]);
+
+    // const dataForm = {
+    //   name: nameProduct,
+    //   description: descProduct,
+    //   price: valueProduct,
+    //   category_id: categoryValue,
+    //   imgProduct: imgEditProduct.files[0],
+    // };
 
     const settings = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(dataForm),
+      body: formDataEditProduct,
     };
 
     Swal.fire({
