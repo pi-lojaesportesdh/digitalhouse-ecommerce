@@ -16,6 +16,8 @@ module.exports = {
       (acc, current) => acc + Number(current.subTotal),
       0
     );
+
+    console.log(cartFormated);
     const produtos = await db.Product.findAll();
 
     res.render("shoppingCart", {
